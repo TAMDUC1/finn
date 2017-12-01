@@ -13,7 +13,7 @@ class ProducsTableSeeder extends Seeder
     {
         $filePath = storage_path('storage');
         $faker = Faker::create();
-        foreach (range(1,1000) as $index) {
+        foreach (range(1,100) as $index) {
             DB::table('products')->insert([
                 'name' => $faker->word,
                 'type' => $faker->word,
@@ -22,7 +22,9 @@ class ProducsTableSeeder extends Seeder
                 'sale_price' => $faker->randomDigitNotNull,
                 'unit_in_stock' => $faker->randomDigitNotNull,
                 'descriptions' => $faker->sentence,
-                'photo' => $filePath
+                'photo' => $filePath,
+                'lft' => 5,
+                'rgt' =>6
             ]);
 
         }

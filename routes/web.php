@@ -35,23 +35,3 @@ Route::resource('products','ProductController');
 
 
 
-/*Route::get('/home', function () {
-    return view('home');
-})->name('home');
-/*route::get('/login',function () {
-    return view('login');
-})->name('login');*/
-
-/*route::post('/login',function () {
-    return view('login');
-})->name('login');
-/*route::get('/post',function () {
-    return view('post');
-})->name('post');
-*/
-/*route::get('/profile',function () {
-    return view('profile');
-})->name('profile');@/
-Auth::routes();
-
-
