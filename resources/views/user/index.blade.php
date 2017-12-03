@@ -27,7 +27,6 @@
             </ul>
         </div>
     <br/>
-
     @if (\Session::has('success'))
         <div class="alert alert-success">
             <p>{{ \Session::get('success') }}</p>
@@ -44,21 +43,19 @@
             <th>Mobile</th>
             <th>Address</th>
             <th>Action</th>
-
-
         </tr>
         </thead>
         <tbody>
-        @foreach($user as $user)
+        @foreach($user as $U)
             <tr>
-                <td>{{$user['id']}}</td>
-                <td>{{$user['name']}}</td>
-                <td>{{$user['email']}}</td>
-                <td>{{$user['phone']}}</td>
-                <td>{{$user['address']}}</td>
-                <td><a href="{{action('UserController@edit', $user['id'])}}" class="btn btn-warning">Edit</a></td>
+                <td>{{$id=$U->id}}</td>
+                <td>{{$name=$U->name}}</td>
+                <td>{{$email=$U->email}}</td>
+                <td>{{$phone=$U->phone}}</td>
+                <td>{{$address=$U->address}}</td>
+                <td><a href="{{action('UserController@edit', $id=$U->id)}}" class="btn btn-warning">Edit</a></td>
                 <td>
-                    <form action="{{action('UserController@destroy', $user['id'])}}" method="post">
+                    <form action="{{action('UserController@destroy', $id=$U->id)}}" method="post">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
                         <button class="btn btn-danger" type="submit">Delete</button>
@@ -66,7 +63,10 @@
                 </td>
             </tr>
         @endforeach
+        {{$user->links()}}
         </tbody>
     </table>
 </div>
+{{$user->links()}}
 </body>
+

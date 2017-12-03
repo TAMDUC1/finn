@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -90,8 +91,17 @@ class UserController extends Controller
     }
     public function index()
     {
-        $user = User::all()->toArray();
-        return view('user.index', compact('user'));
+       // $user = User::all()->toArray();
+      //  return view('user.index', compact('user'));
+        $user = DB :: table('users')->paginate(15);
+
+        return view('user.index',compact('user'));
+
+
+
+
+
+
     }
 
     /**

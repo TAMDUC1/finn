@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Product;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
 class ProductController extends Controller
 {
     /**
@@ -15,14 +14,29 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-        //var_dump();die();
-        $product = Product::all()->toArray();
+       // $product = Product::all()->toArray(); // ok here
+        //  $product = Product::orderBy('created_at','desc')->paginate(15);
+         $product = DB :: table('products')->paginate(15);
+
         // $blog = Blog::orderBy('created_at','desc');
-        // var_dump($blog);die();
-        $user = User::all()->toArray();
-        return view('products.index',compact('product') );
-        // var_dump(blog);die();
+        // var_dump($product);die();
+        //$user = User::all()->toArray();
+        //var_dump($product);die();
+        //return view('products.index',compact('product') ); // ok here
+        //return view('products.index')
+        //  ->with($product);
+        //return view('products.index',['products'=>$product]);
+        // return view('products.index',compact('product'));
+
+
+
+        // $product = DB::table('products')->paginate(5)->toArray();
+        //  var_dump($product);die();
+         //return view('products.index')->with($product);
+         return view('products.index',compact('product'));
+
+
+
     }
 
     /**

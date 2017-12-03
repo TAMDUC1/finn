@@ -28,7 +28,6 @@ Route::get('dashboard', function () {
 
 
 
-
 Route::resource('blogs','BlogController');
 
 Route::resource('products','ProductController');

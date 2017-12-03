@@ -2,7 +2,6 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Faker\Factory as Faker;
-
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         $faker = Faker::create();
-        foreach (range(1,20) as $index) {
+        foreach (range(1,200) as $index) {
             DB::table('users')->insert([
                 'name' => $faker->name,
                 'email' => $faker->email,
@@ -25,6 +24,3 @@ class DatabaseSeeder extends Seeder
         }
     }
 }
-
-
-
