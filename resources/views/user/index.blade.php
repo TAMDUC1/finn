@@ -10,7 +10,6 @@
 
 </head>
 <body>
-
 <div class="container">
 
     <div class="row">
@@ -33,7 +32,6 @@
         </div>
         <br />
     @endif
-
     <table class="table table-striped">
         <thead>
         <tr>
@@ -42,7 +40,6 @@
             <th>Email</th>
             <th>Mobile</th>
             <th>Address</th>
-            <th>Action</th>
         </tr>
         </thead>
         <tbody>

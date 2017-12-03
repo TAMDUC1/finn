@@ -1,5 +1,4 @@
 <!-- index.blade.php -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +6,6 @@
     <title>Index Page</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body>
 <div class="container">
@@ -79,11 +77,8 @@
                 </tr>
             @endforeach
             {{ $product->links() }}
-
             </tbody>
-
         </table>
     </div>
 {{ $product->links() }}
-
 </body>
