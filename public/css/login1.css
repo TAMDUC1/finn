@@ -1,0 +1,44 @@
+.main-container{
+}
+.index-intro{
+    width: 100%;
+    background-color: #ffeae8;
+}
+.index-intro .jumbotron{
+    padding: 100px 60px;
+    margin: 0px;
+    background-image: url('/image/banner3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.left{
+    background-color: #cc7f76;
+}
+.right{
+    background-color: #ffeae8;
+}
+.center h3{
+    text-align: center;
+
+}
+.center button{
+    height:30px;
+    width:100px;
+    position:relative;
+    top:50%;
+    left:30%;
+}
+.center{
+    background-color: #ffeae8;
+}
+.navbar-default{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+
+}
+.gallery{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #ffeae8;
+}

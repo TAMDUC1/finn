@@ -1,14 +1,24 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <link href="{{ asset('css/themebootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="{{ asset('css/themebootstrap.min.css') }}" rel="stylesheet">
+
+
+
         <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script type="text/javascript" src="{{ URL::to('js/nav.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
+
+
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
         <title>Finn</title>
     </head>
     <body>
@@ -31,6 +41,7 @@
                         <li>
                             <a href="{{route('products.index')}}">Product</a>
                         </li>
+
                     </ul>
                 </div>
           </div>
@@ -43,6 +54,8 @@
               </div>
               <div class="col-md-2">
                   Quang cao ben trai
+
+                  </div>
               </div>
               <div class="col-md-3 col-sm-4">
                   Quang cao ben Phai
@@ -58,6 +71,7 @@
                   <div class="text">
                       <p4>
                           The last search
+                          <footer>Tam Duc Pham</footer>
                       </p4>
                   </div>
                   <div class="image">
