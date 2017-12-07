@@ -1,8 +1,9 @@
 .main-container{
+    background-color: #f6ffff;
 }
 .index-intro{
     width: 100%;
-    background-color: #ffeae8;
+    background-color: #f6ffff;
 }
 .index-intro .jumbotron{
     padding: 100px 60px;
@@ -12,10 +13,10 @@
     background-repeat: no-repeat;
 }
 .left{
-    background-color: #cc7f76;
+    background-color: #f6ffff;
 }
 .right{
-    background-color: #ffeae8;
+    background-color: #f6ffff;
 }
 .center h3{
     text-align: center;
@@ -29,16 +30,28 @@
     left:30%;
 }
 .center{
-    background-color: #ffeae8;
+    background-color: #f6ffff;
 }
 .navbar-default{
     position: fixed;
     width: 100%;
+    top:0px;
     z-index: 1;
 
 }
 .gallery{
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #ffeae8;
+    background-color: #f6ffff;
 }
+.navbar-default .container-fluid{
+    background-color: #f6ffff;
+}
+.navbar-default .container-fluid .date{
+    position: absolute;
+    background-color: #68b9f3;
+    top: 15px;
+    width: 10%;
+    left: 3px;
+}
+

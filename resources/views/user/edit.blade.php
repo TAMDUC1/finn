@@ -7,7 +7,6 @@
     <title>Finn</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body>
 <div class="container">
@@ -59,7 +58,6 @@
                 <input type="password" class="form-control" placeholder="Enter your new password" name="password" value="{{$user->password}}">
             </div>
         </div>
-
 </div>
 <div class="row">
     <div class="col-md-4"></div>
@@ -69,5 +67,5 @@
 </div>
 </form>
 </div>
-</body>
+</body>
 </html>

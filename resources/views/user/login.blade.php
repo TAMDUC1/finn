@@ -10,9 +10,9 @@
     <title>Finn</title>
     <link href="{{asset('css/login1.css')}}" rel="stylesheet">
 </head>
-<body>
-            <nav class="navbar navbar-default">
-                   <div class="container-fluid">
+<body onload="startTime()">
+        <nav class="navbar navbar-default" id="closenav">
+                   <div class="container-fluid"  onclick ="toggleNav()">
                        <div class="navbar-header">
                            <a class="navbar-brand" href="{{route('root')}}">Finn
                            </a>
@@ -30,7 +30,7 @@
                            </li>
                            <li class="dropdown">
                                <a
-                                       class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp;Sample
+                                       class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp <span class="glyphicon glyphicon-time"></span></p>
                                </a>
                                <ul class="dropdown-menu">
                                    <li>
@@ -48,11 +48,26 @@
                                    </li>
                                </ul>
                            </li>
+                           <li>
+                               <div class="date" id="txt">
+                               </div>
+                           </li>
+                           <li>
+
+                           </li>
+
                        </ul>
+
+
                    </div>
-                </nav>
-                <div class="main-container">
-                   <article class="index-intro">
+            <p id="testa">
+                abc
+            </p>
+        </nav>
+
+        <div class="main-container" >
+
+               <article class="index-intro">
                         <div class="container">
                             <div class="jumbotron">
                                 <h1>This is a intro header of my site</h1>
@@ -61,8 +76,8 @@
                                               © 1996–2017 FINN.no AS</p>
                             </div>
                         </div>
-                   </article>
-                <div class="container-fluid">
+               </article>
+               <div class="container-fluid">
                         <div class="row">
                                  <div class="col-sm-2">
                                      <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
@@ -86,15 +101,15 @@
                                          <a href="{{route('users.create')}}">Or sign up here</a>
                                      </div>
                                  </div>
-                                 <div class="col-sm-2">
-                                          <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
+                                 <div class="col-sm-2" >
+                                          <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png" >
                                  </div>
                                  <div class="col-sm-2">
                                           <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
                                  </div>
                 </div>
             </div>
-            <div class="gallery">
+            <div class="gallery" >
                 <div class="container-fluid" >
                     <div class="row">
                         <div class="col-sm-2">
@@ -119,5 +134,40 @@
                 </div>
             </div>
             </div>
+<script>
+    var getDate = new Date();
+    document.getElementById("testa").innerHTML = "the date is " + getDate.getDate() + "/" + getDate.getMonth() + " " + getDate.getFullYear();
+
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML =
+            h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+    var date = Date();
+    document.getElementById("test").innerHTML = date;
+    var navStatus = true;
+    function toggleNav() {
+        if (navStatus == true){
+            document.getElementById("closenav").style.top = "0px";
+            navStatus = false;
+        }
+        if (navStatus == false){
+            document.getElementById("closenav").style.top = "0px";
+            navStatus = true;
+        }
+    }
+
+
+</script>
 </body>
 </html>

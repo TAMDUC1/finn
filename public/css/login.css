@@ -1,7 +1,7 @@
 
 .screen{
     position: fixed;
-    background-color: #f6ffff;
+    background-color: #ffa250;
     top:55px;
     left: 0%;
     width: 100%;
@@ -20,12 +20,16 @@ a{
     left: 0%;
     position: fixed;
     height: 45px;
-    background-color: #fff5fa;
+    background-color: #ff7daf;
     width: 100%;
     border-width: thin;
     text-align: left;
     padding: 4px;
 
+}
+
+.container-fluid{
+    background-color: #8b1121;
 }
 li a {
     display: block;

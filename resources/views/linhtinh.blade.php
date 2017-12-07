@@ -89,3 +89,4 @@
 <td>{{$lft = $P->lft}} </td>
 <td>{{$rgt = $P->rgt}} </td>
 
+action="{{action('ProductController@destroy',$P->id)}}"

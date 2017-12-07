@@ -6,6 +6,15 @@
     <title>Index Page</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <script>
+        $('delete').click(function() {
+            if(confirm('Are you sure'))
+                document.location = 'ProductController@destroy';
+        });
+    </script>
+
 </head>
 <body>
 <div class="container">
@@ -68,10 +77,11 @@
                     <td>{{$rgt = $P->rgt}} </td>
                     <td><div class="img"><img src="{{$P->photo}}" width="35" height="40"></div></td>
                     <td>
-                        <form action="{{action('ProductController@destroy',$P->id)}}" method="post" >
+                        <form  method="post" >
                             {{csrf_field()}}
                             <input name="_method" type="hidden" value="DELETE">
-                            <button class="btn btn-danger" type="submit">Delete</button>
+                            <button class="btn btn-danger" type="submit" id="delete"
+                            >Delete</button>
                         </form>
                     </td>
                 </tr>

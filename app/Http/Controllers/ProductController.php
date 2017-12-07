@@ -17,7 +17,6 @@ class ProductController extends Controller
        // $product = Product::all()->toArray(); // ok here
         //  $product = Product::orderBy('created_at','desc')->paginate(15);
          $product = DB :: table('products')->paginate(15);
-
         // $blog = Blog::orderBy('created_at','desc');
         // var_dump($product);die();
         //$user = User::all()->toArray();
@@ -27,18 +26,11 @@ class ProductController extends Controller
         //  ->with($product);
         //return view('products.index',['products'=>$product]);
         // return view('products.index',compact('product'));
-
-
-
         // $product = DB::table('products')->paginate(5)->toArray();
         //  var_dump($product);die();
          //return view('products.index')->with($product);
          return view('products.index',compact('product'));
-
-
-
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +40,6 @@ class ProductController extends Controller
     {
         return view('products.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -57,8 +48,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $product = $this->validate(request(),[
             'name' => 'required',
             'type'=>'required',
@@ -67,11 +56,8 @@ class ProductController extends Controller
             'sale_price'=>'required',
             'unit_in_stock'=>'required',
             'descriptions'=>'required',
-
         ]);
-
         // todo: upload image here
-
         $file = $_FILES['photo'];
         $fileName = $_FILES['photo']['name'];
         $fileTmpName = $_FILES['photo']['tmp_name'];
@@ -100,8 +86,6 @@ class ProductController extends Controller
             echo "you cant upload files of this type";
         }
        // var_dump($product['photo']);die();
-
-
         Product::create($product);
        // var_dump($product);die();
         return back() ->with('nice');
@@ -116,7 +100,6 @@ class ProductController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -125,11 +108,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-
-
-
+        //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -149,9 +129,7 @@ class ProductController extends Controller
             'unit_in_stock'=>'required',
             'descriptions'=>'required',
         ]);
-
     }
-
     /**
      * Remove the specified resource from storage.
      *
