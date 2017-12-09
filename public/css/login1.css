@@ -16,6 +16,7 @@
     background-color: #f6ffff;
 }
 .right{
+    top:80px;
     background-color: #f6ffff;
 }
 .center h3{
@@ -31,6 +32,7 @@
 }
 .center{
     background-color: #f6ffff;
+    top:70px;
 }
 .navbar-default{
     position: fixed;

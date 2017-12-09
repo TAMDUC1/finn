@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('root');
 
+Route::post('users',function (){
+    if(Request::ajax()){
+        return Response()::json(request::all());
+    }
+});
 Route::post('logout','UserController@logout')->name('logout');
 Route::get('home','UserController@home')->name('home');
 Route::get('login','UserController@login')->name('login');
@@ -27,7 +32,13 @@ Route::get('dashboard', function () {
 
 
 
-
+Route::post('index1','BlogController@index1')->name('index1');
+//Route::get('index1','BlogController@index1')->name('index1');
+Route::get('index1',function (){
+    if(Request::ajax()){
+        return 'loaded';
+    }
+});
 Route::resource('blogs','BlogController');
 
 Route::resource('products','ProductController');

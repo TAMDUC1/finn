@@ -90,3 +90,36 @@
 <td>{{$rgt = $P->rgt}} </td>
 
 action="{{action('ProductController@destroy',$P->id)}}"
+
+
+
+blogCount = blogCount +1;
+document.cookie = blogCount;
+$("#comments").load("index1");
+
+
+$("button").click(function ()
+{
+blogCount = blogCount +2;
+
+document.cookie = blogCount;
+alert(blogCount);
+$("#comments").load("index1",blogCount
+)
+})
+
+
+<form method="post" action="{{url('users')}}">
+    {{csrf_field()}}
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" name="name"/>
+    <label for="email">Email:</label>
+    <input type="text" class="form-control" name="email"/>
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" name="password"/>
+    <label for="phone">Phone:</label>
+    <input type="tel" class="form-control" name="phone"/>
+    <label for="address">Address:</label>
+    <input type="text" class="form-control" name="address"/>
+    <button type="submit" class="btn btn-success" style="margin-left:38px">Submit</button>
+</form>

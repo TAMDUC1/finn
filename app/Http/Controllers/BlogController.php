@@ -11,16 +11,60 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-       //var_dump();die();
+
+       // $blogCount = $_COOKIE['blogCount'];
+        $blog_count =1;
         $blog = Blog::all()->toArray();
+        $blog1 = array_slice($blog,0,2);
        // $blog = Blog::orderBy('created_at','desc');
        // var_dump($blog);die();
         $user = User::all()->toArray();
-        return view('blog.index',compact('blog') );
+        return view('blog.index',compact('blog1'));
        // var_dump(blog);die();
     }
+    public function index1()
+    {
+        // var_dump();die();
+        //HERE get the blognewcount from the index to make the new array
+
+        //  $blogNewCount = $_POST['blogNewCount'];
+        // var_dump();die();
+      // echo $blogNewCount;
+
+         echo "abc";
+
+
+         //echo "blogcount la :";
+         //echo $_COOKIE["blogCount"];
+         // var_dump();die();
+         //   echo $_POST['blogCount'];
+         // echo $_COOKIE['blogCount'];
+        // echo $blogNewCount;
+        /* $blogCount = $_POST['blogNewCount'];;
+        $blog = Blog::all()->toArray();
+        $blog1 = array_slice($blog,0,$blogCount);
+        foreach ($blog1 as $b) {
+            echo "<p>Title: ";
+            echo $b['title'] ;
+            echo "</p>" ;
+            echo "<p>Content: ";
+            echo $b['content'];
+            echo "</p>" ;
+            echo "<p>From User: ";
+            echo $b['user_id'] ;
+            echo "</p>" ;
+        }
+    */
+
+
+        $user = User::all()->toArray();
+        return compact('blog1') ;
+        // var_dump(blog);die();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -79,22 +79,27 @@
                                 </div>
                             <br />
                              @endif
-                        <form method="post" action="{{url('users')}}">
-                            {{csrf_field()}}
-                            <label for="name">Name:</label>
-                            <input type="text" class="form-control" name="name"/>
-                            <label for="email">Email:</label>
-                            <input type="text" class="form-control" name="email"/>
-                            <label for="password">Password:</label>
-                            <input type="password" class="form-control" name="password"/>
-                            <label for="phone">Phone:</label>
-                            <input type="tel" class="form-control" name="phone"/>
-                            <label for="address">Address:</label>
-                            <input type="text" class="form-control" name="address"/>
-                            <button type="submit" class="btn btn-success" style="margin-left:38px">Submit</button>
-                         </form>
+                    <form method="post" action="{{url('users')}}" id="register" >
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                        {{csrf_field()}}
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" name="name" id="name"/>
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" name="email" id="email"/>
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" name="password" id="password"/>
+                        <label for="phone">Phone:</label>
+                        <input type="tel" class="form-control" name="phone" id="phone"/>
+                        <label for="address">Address:</label>
+                        <input type="text" class="form-control" name="address" id="address"/>
+                        <button type="submit" class="btn btn-primary"  value="Resgister" style="margin-left:38px">Submit</button>
+                    </form>
+                    <div id="postRequestData"></div>
+
                     </div>
-                <div class="col-sm-4 right">
+                <div class="col-sm-4 right" >
+
                 </div>
             </div>
     </div>
@@ -108,6 +113,30 @@
             </div>
         </div>
     </div>
+<script type="text/javascript">
+    $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    $(document).ready(function () {
+        $('#register').submit(function () {
+           var aname = $('#name').val();
+            var aemail = $('#email').val();
+            var apassword = $('#password').val();
+            var aphone = $('#phone').val();
+            var aaddress = $('#address').val();
+            $.post('users',{name: aname,mail: aemail, password: apassword, phone: aphone, address: aaddress }, function(){
+                    console.log(data);
+                    $('#postRequestData').html(data);
+
+            });
+        });
+
+    })
+</script>
+
+
 
 </body>
 </html>
