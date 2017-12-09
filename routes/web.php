@@ -39,6 +39,14 @@ Route::get('index1',function (){
         return 'loaded';
     }
 });
+
+
+
+Route::post('blogs',function (){
+    if(Request::ajax()){
+        return Response::json(Request::all());
+    }
+});
 Route::resource('blogs','BlogController');
 
 Route::resource('products','ProductController');

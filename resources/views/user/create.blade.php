@@ -62,26 +62,25 @@
                     <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
                 </div>
                 <div class="col-sm-4 center">
-                            <h2>Sign Up</h2><br  />
-                            @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                            <br />
-                            @endif
-                            @if (\Session::has('success'))
-                                <div class="alert alert-success">
-                                    <p>{{ \Session::get('success') }}</p>
-                                </div>
-                            <br />
-                             @endif
+                        <h2>Sign Up</h2><br  />
+                        @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                        <br />
+                        @endif
+                        @if (\Session::has('success'))
+                            <div class="alert alert-success">
+                                <p>{{ \Session::get('success') }}</p>
+                            </div>
+                        <br />
+                         @endif
                     <form method="post" action="{{url('users')}}" id="register" >
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
                         {{csrf_field()}}
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" name="name" id="name"/>
@@ -113,31 +112,29 @@
             </div>
         </div>
     </div>
-<script type="text/javascript">
-    $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-    $(document).ready(function () {
-        $('#register').submit(function () {
-           var aname = $('#name').val();
-            var aemail = $('#email').val();
-            var apassword = $('#password').val();
-            var aphone = $('#phone').val();
-            var aaddress = $('#address').val();
-            $.post('users',{name: aname,mail: aemail, password: apassword, phone: aphone, address: aaddress }, function(){
-                    console.log(data);
-                    $('#postRequestData').html(data);
-
+    <script type="text/javascript">
+        $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
             });
-        });
-
-    })
-</script>
-
-
-
+        $(document).ready(function ()
+        {
+            $('#register').submit(function ()
+            {
+               var aName = $('#name').val();
+                var aEmail = $('#email').val();
+                var aPassword = $('#password').val();
+                var aPhone = $('#phone').val();
+                var aAddress = $('#address').val();
+               $.post('users',{name: aName,mail: aEmail, password: aPassword, phone: aPhone, address: aAddress }, function()
+               {
+                        console.log(data);
+                        $('#postRequestData').html(data);
+               });
+            });
+        })
+    </script>
 </body>
 </html>
 

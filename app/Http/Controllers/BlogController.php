@@ -87,7 +87,6 @@ class BlogController extends Controller
         $blog = $this->validate(request(),[
             'title' => 'required',
             'content'=>'required'
-
         ]);
          $blog['user_id'] = session('user_id');// user_id trong user chi co ghi la id lam sao session lay duoc
         // vs bien la user_id?
