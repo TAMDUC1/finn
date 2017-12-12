@@ -56,9 +56,6 @@
                 </li>
             </ul>
         </div>
-        <p id="testa">
-            abc
-        </p>
     </nav>
     <div class="container">
           <div class="row">
@@ -85,7 +82,6 @@
       </div>
       <div class="container-fluid">
           <div class="row">
-
               <div class="col-md-1">
                   Quang cao nho trai
               </div>
@@ -112,7 +108,8 @@
                       </p4>
                   </div>
                   <div class="image">
-                      <div class="item active"  >
+                      <div class="item active" onclick="on" id="postBlog">
+
                           <img src="/image/1.png" alt="">
                       </div>
                       <div class="item active" >
@@ -128,7 +125,10 @@
                   <div class="frame">
                       <div class="framed">
                           <svg width="110" height="100" >
+
                           </svg>
+
+                          <a href="http://google.com">link</a>
 
                       </div>
                       <div class="framed21">
@@ -203,5 +203,21 @@
               </div>
           </div>
       </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#blogPost').click(function () {
+                window.location = $(this).find("a").attr("href");
+                return false;
+            });
+
+
+        })
+
+    </script>
     </body>
+    <div class="myBox">
+        blah blah blah.
+        <a href="http://google.com">link</a>
+    </div>
 </html>

@@ -97,7 +97,6 @@ class UserController extends Controller
        // $user = User::all()->toArray();
       //  return view('user.index', compact('user'));
         $user = DB :: table('users')->paginate(15);
-
         return view('user.index',compact('user'));
     }
 

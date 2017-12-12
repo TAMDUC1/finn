@@ -60,3 +60,42 @@
     left: 3px;
 }
 
+.container-fluid .row .left1{
+    padding: 4px;
+    margin: 2px;
+
+}
+.container-fluid .row .left2{
+    padding: 4px;
+    margin: 2px;
+}
+.container-fluid .row .right1{
+    padding: 4px;
+    margin: 2px;
+}.container-fluid .row .right2{
+     padding: 4px;
+    margin: 2px;
+ }
+.container-fluid .row .b1{
+    padding: 4px;
+    margin: 2px;
+
+}
+.container-fluid .row .b2{
+    padding: 4px;
+    margin: 2px;
+}
+.container-fluid .row .b3{
+    padding: 4px;
+    margin: 2px;
+}.container-fluid .row .b4{
+     padding: 4px;
+     margin: 2px;
+ }
+.container-fluid .row .b5{
+    padding: 4px;
+    margin: 2px;
+}.container-fluid .row .b6{
+     padding: 4px;
+     margin: 2px;
+ }

@@ -9,59 +9,55 @@
     <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
     <title>Finn</title>
     <link href="{{asset('css/login1.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
 </head>
 <body onload="startTime()">
-        <nav class="navbar navbar-default" id="closenav">
-                   <div class="container-fluid"  onclick ="toggleNav()">
-                       <div class="navbar-header">
-                           <a class="navbar-brand" href="{{route('root')}}">Finn
+    <nav class="navbar navbar-default" id="closenav">
+       <div class="container-fluid"  onclick ="toggleNav()">
+           <div class="navbar-header">
+               <a class="navbar-brand" href="{{route('root')}}">Finn
+               </a>
+           </div>
+           <ul class="nav navbar-nav">
+               <li>
+                   <a href="{{route('users.create')}}">Sign Up</a>
+               </li>
+               <li>
+                   <a href="{{route('users.index')}}">Admin</a>
+               </li>
+               <li>
+                   <a href="{{route('blogs.index')}}">Post</a>
+               </li>
+               <li class="dropdown">
+                   <a
+                       class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp <span class="glyphicon glyphicon-time"></span></p>
+                   </a>
+                   <ul class="dropdown-menu">
+                       <li>
+                           <a
+                               href="#">List1
                            </a>
-                       </div>
-                       <ul class="nav navbar-nav">
-                           <li>
-                               <a href="{{route('users.create')}}">Sign Up</a>
-                           </li>
-
-                           <li>
-                               <a href="{{route('users.index')}}">Admin</a>
-                           </li>
-                           <li>
-                               <a href="{{route('blogs.index')}}">Post</a>
-                           </li>
-                           <li class="dropdown">
-                               <a
-                                       class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp <span class="glyphicon glyphicon-time"></span></p>
-                               </a>
-                               <ul class="dropdown-menu">
-                                   <li>
-                                       <a
-                                               href="#">List1
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <a href="#">List1
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <a href="#">List1
-                                       </a>
-                                   </li>
-                               </ul>
-                           </li>
-                           <li>
-                               <div class="date" id="txt">
-                               </div>
-                           </li>
-                           <li>
-
-                           </li>
-
-                       </ul>
+                       </li>
+                       <li>
+                           <a
+                               href="#">List1
+                           </a>
+                       </li>
+                       <li>
+                           <a href="#">List1
+                           </a>
+                       </li>
+                   </ul>
+               </li>
+               <li>
+                   <div class="date" id="txt">
                    </div>
-            <p id="testa">
-                abc
-            </p>
-        </nav>
+               </li>
+           </ul>
+       </div>
+
+    </nav>
         <div class="main-container" >
                <article class="index-intro">
                         <div class="container">
@@ -75,11 +71,15 @@
                </article>
                <div class="container-fluid">
                         <div class="row">
-                                 <div class="col-sm-2">
-                                     <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
+                                 <div class="col-sm-2 left1">
+                                     <a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                         <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                                     </a>
                                  </div>
-                                 <div class="col-sm-2">
-                                     <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
+                                 <div class="col-sm-2 left2">
+                                     <a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                         <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                                     </a>
                                  </div>
                                  <div class="col-sm-4 center">
                                         <h3>Login</h3>
@@ -93,43 +93,57 @@
                                             <button type="submit" class="btn btn-success" style="margin-left:38px">Login</button>
                                             </form>
                                         </div>
-                                     <div class="signup">
-                                         <a href="{{route('users.create')}}">Or sign up here</a>
-                                     </div>
+                                        <div class="signup">
+                                            <a href="{{route('users.create')}}">Or sign up here</a>
+                                        </div>
                                  </div>
-                                 <div class="col-sm-2" >
-                                          <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png" >
+                                 <div class="col-sm-2 right1" ><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                         <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                                     </a>
                                  </div>
-                                 <div class="col-sm-2">
-                                          <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
+                                 <div class="col-sm-2 right2"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                         <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                                     </a>
                                  </div>
                 </div>
             </div>
             <div class="gallery" >
                 <div class="container-fluid" >
                     <div class="row">
-                        <div class="col-sm-2">
-                            <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
+                        <div class="col-sm-2 b1"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                            </a>
                         </div>
-                        <div class="col-sm-2">
-                            <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
+                        <div class="col-sm-2 b2"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                            </a>
                         </div>
-                        <div class="col-sm-2">
-                            <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
+                        <div class="col-sm-2 b3"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                            </a>
                         </div>
-                        <div class="col-sm-2">
-                            <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
+                        <div class="col-sm-2 b4"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                            </a>
                         </div>
-                        <div class="col-sm-2">
-                            <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
+                        <div class="col-sm-2 b5"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                            </a>
                         </div>
-                        <div class="col-sm-2">
-                            <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
+                        <div class="col-sm-2 b6">
+                            <a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
+
+
+            </p>
+
+
+        </div>
 <script type="text/javascript">
     console.log('1222');
     $.ajaxSetup({
@@ -156,10 +170,7 @@
             })
         });
     })
-
-
     var getDate = new Date();
-
     function startTime() {
         var today = new Date();
         var h = today.getHours();
@@ -187,8 +198,6 @@
             navStatus = true;
         }
     }
-
-
 </script>
 </body>
 </html>

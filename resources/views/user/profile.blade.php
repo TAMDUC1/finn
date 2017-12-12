@@ -184,7 +184,6 @@
                     console.log(data);
                     $('#blogPost').append("Title of Blog is "+data.title);
                     $('#blogPost').append("Content of Blog is "+data.content);
-
                 },
                 error: function (jqXhr,textStatus,errorMessage)
                 {
