@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 class BlogController extends Controller
 {
     /**
@@ -18,7 +20,7 @@ class BlogController extends Controller
        // $blogCount = $_COOKIE['blogCount'];
         $blog_count =1;
         $blog = Blog::all()->toArray();
-        $blog1 = array_slice($blog,0,2);
+        $blog1 = array_slice($blog,0,100);
        // $blog = Blog::orderBy('created_at','desc');
        // var_dump($blog);die();
         $user = User::all()->toArray();
@@ -65,6 +67,12 @@ class BlogController extends Controller
         // var_dump(blog);die();
     }
 
+    public function getBlog(){
+        $id= Session::get('user_id');
+        $blog = Blog::where('user_id', $id);
+        //$myJson = json_ecode($blog);
+        return response()->json($blog);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -95,8 +103,18 @@ class BlogController extends Controller
          Blog::create($blog);
          //  var_dump('tamsieunhan');die;
          // $blog->save();
-        return back()->with('success','Blog has been added');;
+         // $myJson = json_ecode($blog);
+        return response()->json($blog);
+      //  return back()->with('success','Blog has been added');
     }
+    public  function deleteAll()
+    {
+        $id= Session::get('user_id');
+        $blog = Blog::where('user_id', $id);
+        $blog -> delete();
+        return back();
+    }
+
     /**
      * Display the specified resource.
      *

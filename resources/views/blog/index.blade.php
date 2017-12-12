@@ -103,9 +103,7 @@
                     <p>From user:{{$b['user_id']}}</p>
                 </div>
             @endforeach
-
         </div>
-
     </div>
     <div class="col-md-2">
     </div>

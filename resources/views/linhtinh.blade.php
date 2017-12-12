@@ -89,6 +89,7 @@
 <td>{{$lft = $P->lft}} </td>
 <td>{{$rgt = $P->rgt}} </td>
 
+
 action="{{action('ProductController@destroy',$P->id)}}"
 
 
@@ -123,3 +124,42 @@ $("#comments").load("index1",blogCount
     <input type="text" class="form-control" name="address"/>
     <button type="submit" class="btn btn-success" style="margin-left:38px">Submit</button>
 </form>
+
+
+// profile
+<form method="post" action="{{url('blogs')}} " id="usrform">
+    {{csrf_field()}}
+    <div class="left-form">
+        <label for="title">Title</label>
+        <input
+                type="text"
+                class="form-control"
+                name="title">
+        </input>
+    </div>
+    <div class="form-group">
+        <label for="content">Content</label>
+        <input
+                type="text"
+                class="form-control"
+                name="content"
+                style="height:200px;font-size:14pt;"
+        >
+        </input>
+    </div>
+    <div class="submit-button">
+        <button type="submit" class="btn btn-success" style="margin-left:38px">Submit</button>
+    </div>
+</form>
+
+
+
+
+
+$.getJSON('getBlog',data,function (data)
+{
+console.log(data);
+$('#last').html(data);
+})
+
+

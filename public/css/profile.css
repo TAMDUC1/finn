@@ -142,3 +142,9 @@ li a {
 li a:hover {
     background-color: #111;
 }
+.logout-button{
+    float:right;
+}
+.container.right-half.blogabc{
+    border-style: dashed;
+}

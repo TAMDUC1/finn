@@ -57,16 +57,12 @@
                            </li>
 
                        </ul>
-
-
                    </div>
             <p id="testa">
                 abc
             </p>
         </nav>
-
         <div class="main-container" >
-
                <article class="index-intro">
                         <div class="container">
                             <div class="jumbotron">
@@ -91,7 +87,7 @@
                                             <form method="post" action="{{action('UserController@signin')}}">
                                             {{csrf_field()}}
                                             <label for="email">Email:</label>
-                                            <input type="text" class="form-control" name="email">
+                                            <input type="text" class="form-control" name="email" placeholder="TagName"id="searchEmail" autocomplete="on">
                                             <label for="password">Password:</label>
                                             <input type="password" class="form-control" name="password">
                                             <button type="submit" class="btn btn-success" style="margin-left:38px">Login</button>
@@ -134,9 +130,35 @@
                 </div>
             </div>
             </div>
-<script>
+<script type="text/javascript">
+    console.log('1222');
+    $.ajaxSetup({
+        headers:
+            {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+    });
+    $(document).ready(function ()
+    {
+        console.log('444');
+        $('#searchEmail').keypress(function ()
+        {
+            console.log('1232222');
+            $.ajax
+            ({
+                dataType: 'json',
+                url:'searchName',// logic tren serve
+                success:function(data)
+                {
+                    console.log('4444');
+                    console.log(data.email);
+                }
+            })
+        });
+    })
+
+
     var getDate = new Date();
-    document.getElementById("testa").innerHTML = "the date is " + getDate.getDate() + "/" + getDate.getMonth() + " " + getDate.getFullYear();
 
     function startTime() {
         var today = new Date();
@@ -154,7 +176,6 @@
         return i;
     }
     var date = Date();
-    document.getElementById("test").innerHTML = date;
     var navStatus = true;
     function toggleNav() {
         if (navStatus == true){

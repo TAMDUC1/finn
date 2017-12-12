@@ -76,8 +76,9 @@ class UserController extends Controller
         //  $blog = Blog::all()->toArray();
         $blog = Blog::where('user_id', $id)
             ->orderBy('title', 'desc')
-            ->take(10)
+            ->take(3)
             ->get();
+
         // var_dump($blog);die();
         // $blog = DB::table('blogs')
         //
@@ -85,6 +86,8 @@ class UserController extends Controller
         // ->get();
         return view('user.profile',compact('blog'));
     }
+
+
     public function post()
     {
           return view('user.post');
@@ -96,12 +99,6 @@ class UserController extends Controller
         $user = DB :: table('users')->paginate(15);
 
         return view('user.index',compact('user'));
-
-
-
-
-
-
     }
 
     /**
@@ -112,9 +109,7 @@ class UserController extends Controller
     public function create()
     {
         return view('user.create');// create content
-
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -158,11 +153,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function searchName (Request $request){
+        $email = $request->email;
+        $queries = DB::table('users')
+            ->Where('email','like','%'.$email.'%')
+            ->take(20)->get();
+        foreach ($queries as $q){
+            $results[]=['email' => $q->email];
+        }
+        return response()->json($results);
+    }
     public function edit($id)
     {
         $user = User::find($id);
         return view('user.edit',compact('user','id'));
-
     }
     /**
      * Update the specified resource in storage.
@@ -181,7 +185,6 @@ class UserController extends Controller
             'phone' => 'required',
             'address' => 'required'
         ]);
-
         $user->name = $request->get('name');
         $user->email = $request->get('email');
         $user->password = $request->get('password');

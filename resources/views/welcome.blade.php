@@ -4,25 +4,63 @@
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="{{ asset('css/themebootstrap.min.css') }}" rel="stylesheet">
-
-
-
         <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
         <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
-
-
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
         <title>Finn</title>
     </head>
     <body>
-      <div class="container">
+    <nav class="navbar navbar-default" id="closenav">
+        <div class="container-fluid"  onclick ="toggleNav()">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{route('root')}}">Finn
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{{route('users.create')}}">Sign Up</a>
+                </li>
+
+                <li>
+                    <a href="{{route('users.index')}}">Admin</a>
+                </li>
+                <li>
+                    <a href="{{route('blogs.index')}}">Post</a>
+                </li>
+                <li class="dropdown">
+                    <a
+                            class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp <span class="glyphicon glyphicon-time"></span></p>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a
+                                    href="#">List1
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">List1
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">List1
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="date" id="txt">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <p id="testa">
+            abc
+        </p>
+    </nav>
+    <div class="container">
           <div class="row">
                 <div class="col-md-12" id="nav_bar" style="background-color: #f6ffff">
                     <ul>
@@ -41,7 +79,6 @@
                         <li>
                             <a href="{{route('products.index')}}">Product</a>
                         </li>
-
                     </ul>
                 </div>
           </div>

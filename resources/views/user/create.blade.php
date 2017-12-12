@@ -56,12 +56,10 @@
     <div class="main-container">
             <div class="row">
                 <div class="col-sm-2 left">
-                        <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
                 </div>
                 <div class="col-sm-2 left">
-                    <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
                 </div>
-                <div class="col-sm-4 center">
+                <div class="col-sm-4 center1">
                         <h2>Sign Up</h2><br  />
                         @if ($errors->any())
                     <div class="alert alert-danger">
@@ -95,10 +93,8 @@
                         <button type="submit" class="btn btn-primary"  value="Resgister" style="margin-left:38px">Submit</button>
                     </form>
                     <div id="postRequestData"></div>
-
                     </div>
                 <div class="col-sm-4 right" >
-
                 </div>
             </div>
     </div>
@@ -112,6 +108,7 @@
             </div>
         </div>
     </div>
+
     <script type="text/javascript">
         $.ajaxSetup({
                 headers: {

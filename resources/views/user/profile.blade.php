@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-<head>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -9,26 +8,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{asset('css/newProfile.css')}}" rel="stylesheet">
     <title>Finn</title>
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 100;
-            height: 100vh;
-            margin: 0;
-        }
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-    </style>
+
 </head>
 <body>
 <nav class="navbar navbar-default" id="closenav">
@@ -41,7 +23,6 @@
             <li>
                 <a href="{{route('users.create')}}">Sign Up</a>
             </li>
-
             <li>
                 <a href="{{route('users.index')}}">Admin</a>
             </li>
@@ -81,11 +62,11 @@
                         </label>
                     </div>
                 </form>
+
             </li>
         </ul>
     </div>
 </nav>
-
 <div class="container">
     <div class="row">
         <div class="col-sm-6" id="left-half">
@@ -96,9 +77,8 @@
                 Here you can post your advertisement
             </h2>
             <div id="test">
-                <form method="post" action="{{url('blogs')}} " id="register">
+                <form id="register">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
                     {{csrf_field()}}
                     <div class="left-form"  >
                         <label for="title">Title</label>
@@ -122,75 +102,96 @@
                         </input>
                     </div>
                     <div class="submit-button">
-                        <button type="submit" class="btn btn-primary" style="margin-left:38px">Submit</button>
+                        <button type="submit" class="btn btn-primary" style="margin-left:38px" id="sm">Submit</button>
+                    </div>
+
+                </form>
+                <form method="post" action="{{action('BlogController@deleteAll')}}">
+                    {{ csrf_field() }}
+                    <div class="delete_button">
+                        <label>
+                            <button type="submit" class="btn btn-success" style="margin-left:38px">deleteAllBlogs</button>
+                        </label>
                     </div>
                 </form>
             </div>
-            <form method="post" action="{{url('blogs')}} " id="usrform">
-                {{csrf_field()}}
-                <div class="left-form">
-                    <label for="title">Title</label>
-                    <input
-                            type="text"
-                            class="form-control"
-                            name="title">
-                    </input>
-                </div>
-                <div class="form-group">
-                    <label for="content">Content</label>
-                    <input
-                            type="text"
-                            class="form-control"
-                            name="content"
-                            style="height:200px;font-size:14pt;"
-                    >
-                    </input>
-                </div>
-                <div class="submit-button">
-                    <button type="submit" class="btn btn-success" style="margin-left:38px">Submit</button>
-                </div>
-            </form>
         </div>
         <div class="col-sm-6" id="right-half">
             <h1>
                 Your post
             </h1>
-            <div id="postBlog"></div>
-            <h2>
-                @foreach($blog as $b)
-                    <div class="row">
-                        <div>
-                            Title:
-                            {{$b['title']}}
+            <div class="blogabc">
+                <h2>
+                    @foreach($blog as $b)
+                        <div class="blogSub">
+                            <div>
+                                Title:
+                                {{$b['title']}}
+                            </div>
+                            <div class="content"><p5>Content:</p5>
+                                {{$b['content']}}
+                            </div>
+                            <div> User_id: {{$b['user_id']}}</div>
                         </div>
-                        <div class="content"><p5>Content:</p5>
-                            {{$b['content']}}
-                        </div>
-                        <div> User_id: {{$b['user_id']}}</div>
-                    </div>
-                @endforeach
-            </h2>
+                    @endforeach
+                </h2>
+            </div>
+
         </div>
+    </div>
+    <div class="row" id="blogPost">
     </div>
 </div>
 <script type="text/javascript">
+    var thedata = '{"name":"tam","age":"31"}';
+    var obj =JSON.parse(thedata);
+    var ErrorMessage = 'Error roi';
+    var neededData;
+    //document.getElementById("blogPost").innerHTML = obj.name;
+    console.log('123');
+  //  $('#blogPost').innerHTML = obj.name;
+    console.log('123');
     $.ajaxSetup({
-        headers: {
+        headers:
+            {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    console.log('444');
     $(document).ready(function () {
-        $('#register').submit(function () {
+        $('#register').submit(function (event)
+        {
+            event.preventDefault();
             var bTitle = $('#title').val();
             var bContent = $('#content').val();
-
-            $.post('blogs',{ title: bTitle, content : bContent},function () {
+            console.log('123');
+            $.post('blogs',{ title: bTitle, content : bContent},function (data)
+            {
                 console.log(data);
-                $('#postBlog').html(data);
-
+                console.log(data.title);
+                $('#blogPost').html("Title la " + data.title +" content la " + data.content);
+             //   $('#blogPost').html(data.content);//data.title;
             })
         })
+        $('#sm').click(function ()
+        {
+            $.ajax
+            (
+                {
+                dataType: 'json',
+                url:'getBlog',
+                success:function(data){
+                    console.log(data);
+                    $('#blogPost').append("Title of Blog is "+data.title);
+                    $('#blogPost').append("Content of Blog is "+data.content);
 
+                },
+                error: function (jqXhr,textStatus,errorMessage)
+                {
+                    $('#blogPost').append('Error')
+                }
+            })
+        });
     })
 </script>
 </body>
