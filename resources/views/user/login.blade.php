@@ -70,42 +70,42 @@
                         </div>
                </article>
                <div class="container-fluid">
-                        <div class="row">
-                                 <div class="col-sm-2 left1">
-                                     <a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                         <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                                     </a>
-                                 </div>
-                                 <div class="col-sm-2 left2">
-                                     <a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                         <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                                     </a>
-                                 </div>
-                                 <div class="col-sm-4 center">
-                                        <h3>Login</h3>
-                                        <div class="log">
-                                            <form method="post" action="{{action('UserController@signin')}}">
-                                            {{csrf_field()}}
-                                            <label for="email">Email:</label>
-                                            <input type="text" class="form-control" name="email" placeholder="TagName"id="searchEmail" autocomplete="on">
-                                            <label for="password">Password:</label>
-                                            <input type="password" class="form-control" name="password">
-                                            <button type="submit" class="btn btn-success" style="margin-left:38px">Login</button>
-                                            </form>
-                                        </div>
-                                        <div class="signup">
-                                            <a href="{{route('users.create')}}">Or sign up here</a>
-                                        </div>
-                                 </div>
-                                 <div class="col-sm-2 right1" ><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                         <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                                     </a>
-                                 </div>
-                                 <div class="col-sm-2 right2"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                         <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                                     </a>
-                                 </div>
-                </div>
+                    <div class="row">
+                         <div class="col-sm-2 left1">
+                             <a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                 <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                             </a>
+                         </div>
+                         <div class="col-sm-2 left2">
+                             <a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                 <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                             </a>
+                         </div>
+                         <div class="col-sm-4 center">
+                                <h3>Login</h3>
+                                <div class="log">
+                                    <form method="post" action="{{action('UserController@signin')}}">
+                                    {{csrf_field()}}
+                                    <label for="email">Email:</label>
+                                    <input type="text" class="form-control" name="email" placeholder="TagName"id="searchEmail" autocomplete="on">
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control" name="password">
+                                    <button type="submit" class="btn btn-success" style="margin-left:38px">Login</button>
+                                    </form>
+                                </div>
+                                <div class="signup">
+                                    <a href="{{route('users.create')}}">Or sign up here</a>
+                                </div>
+                         </div>
+                         <div class="col-sm-2 right1" ><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                 <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                             </a>
+                         </div>
+                         <div class="col-sm-2 right2"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
+                                 <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
+                             </a>
+                         </div>
+                    </div>
             </div>
             <div class="gallery" >
                 <div class="container-fluid" >

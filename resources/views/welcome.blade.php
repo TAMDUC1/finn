@@ -82,17 +82,25 @@
       </div>
       <div class="container-fluid">
           <div class="row">
-              <div class="col-md-1">
-                  Quang cao nho trai
-              </div>
-              <div class="col-md-2">
-                  Quang cao ben trai
-
+              <a href="https://vnexpress.net">
+                  <div class="col-md-1">
+                      Vnexpress
                   </div>
+              </a>
+              <a href="https://tinhte.vn">
+
+                  <div class="col-md-2">
+                      Tinhte
+                  </div>
+              </a>
+
               </div>
+          <a href="http://cnet.com">
               <div class="col-md-3 col-sm-4">
-                  Quang cao ben Phai
+                    Cnet
               </div>
+          </a>
+
 
               <div class="col-md-6 col-sm-9" >
                   <header class="title" style="margin-left: 30%" >
@@ -123,14 +131,12 @@
                       </div>
                   </div>
                   <div class="frame">
-                      <div class="framed">
-                          <svg width="110" height="100" >
-
-                          </svg>
-
-                          <a href="http://google.com">link</a>
-
-                      </div>
+                      <a href="http://google.com">
+                          <div class="framed">
+                              <svg width="110" height="100" >
+                              </svg>
+                          </div>
+                      </a>
                       <div class="framed21">
                           <svg width="110" height="100" >
                           </svg>
@@ -210,10 +216,7 @@
                 window.location = $(this).find("a").attr("href");
                 return false;
             });
-
-
         })
-
     </script>
     </body>
     <div class="myBox">

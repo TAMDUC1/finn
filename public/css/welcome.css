@@ -213,6 +213,7 @@ frame{
 }
 .frame:hover{
     background-color: #fff5fa;
+    border-color: #8b1121;
 }
 .framed{
     position: absolute;
@@ -221,7 +222,9 @@ frame{
     border: 1px solid black;
     margin: 3px;
     width:15.5%;
-    background-color: #27748b;
+}
+.framed:hover{
+    border-color: #f2fffa;
 }
 .framed_12 {
     position: absolute;
@@ -232,6 +235,43 @@ frame{
     width:15.5%;
 
 }
+.framed_12:hover{
+    background-color: yellow;
+}
+.framed_13:hover{
+    background-color: #949dff;
+}
+.framed_14:hover{
+    background-color: #ff65c9;
+}
+.framed_15:hover{
+    background-color: #41f3ff;
+}
+.framed_16:hover{
+    background-color: #1eff27;
+}
+.framed_22:hover{
+    background-color: #ff1d17;
+}
+.framed_32:hover{
+    background-color: yellow;
+}
+.framed_23:hover{
+    background-color: #949dff;
+}
+.framed_24:hover{
+    background-color: #ff65c9;
+}
+.framed_25:hover{
+    background-color: #41f3ff;
+}
+.framed_26:hover{
+    background-color: #1eff27;
+}
+.framed_33:hover{
+    background-color: #ff1d17;
+}
+
 .framed_13{
     position: absolute;
     top: 450px;
@@ -378,7 +418,6 @@ frame{
     border: 1px solid black;
     margin: 3px;
     width:15.5%;
-
 }
 .row{
     background-color: #fff5fa;
