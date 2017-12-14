@@ -30,8 +30,6 @@ Route::get('login','UserController@login')->name('login');
 Route::post('signin','UserController@signin')->name('signin');
 Route::get('profile','UserController@profile')->name('profile');
 
-
-
 Route::get('public/xml/user.xml', function() {
     $users = User::all();
 
@@ -81,7 +79,7 @@ Route::post('blogs',function (){
         return Response::json(Request::all());
     }
 });
-
+Route::get('singleBlog','BlogController@singleBlog')->name('singleBlog');
 Route::post('deleteAll','BlogController@deleteAll')->name('deleteAll');
 Route::get('getBlog','BlogController@getBlog')->name('getBlog');
 Route::resource('blogs','BlogController');

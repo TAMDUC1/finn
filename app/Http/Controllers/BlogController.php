@@ -16,7 +16,6 @@ class BlogController extends Controller
 
     public function index()
     {
-
        // $blogCount = $_COOKIE['blogCount'];
         $blog_count =1;
         $blog = Blog::all()->toArray();
@@ -31,14 +30,10 @@ class BlogController extends Controller
     {
         // var_dump();die();
         //HERE get the blognewcount from the index to make the new array
-
         //  $blogNewCount = $_POST['blogNewCount'];
         // var_dump();die();
       // echo $blogNewCount;
-
          echo "abc";
-
-
          //echo "blogcount la :";
          //echo $_COOKIE["blogCount"];
          // var_dump();die();
@@ -60,13 +55,10 @@ class BlogController extends Controller
             echo "</p>" ;
         }
     */
-
-
         $user = User::all()->toArray();
         return compact('blog1') ;
         // var_dump(blog);die();
     }
-
     public function getBlog(){
         $id= Session::get('user_id');
         $blog = Blog::where('user_id', $id);
@@ -81,6 +73,9 @@ class BlogController extends Controller
     public function create()
     {
         return view('blog.create');// create content
+    }
+    public  function singleBlog(){
+        return view('blog.singleBlog');
     }
     /**
      * Store a newly created resource in storage.
@@ -107,6 +102,7 @@ class BlogController extends Controller
         return response()->json($blog);
       //  return back()->with('success','Blog has been added');
     }
+
     public  function deleteAll()
     {
         $id= Session::get('user_id');

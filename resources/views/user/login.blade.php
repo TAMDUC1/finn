@@ -56,30 +56,18 @@
                </li>
            </ul>
        </div>
-
     </nav>
-        <div class="main-container" >
-               <article class="index-intro">
-                        <div class="container">
-                            <div class="jumbotron">
-                                <h1>This is a intro header of my site</h1>
-                                <p> er beskyttet etter åndsverksloven. Bruk av automatiserte tjenester (roboter, spidere, indeksering m.m.) samt andre fremgangsmåter for systematisk eller regelmessig bruk er ikke tillatt uten eksplisitt samtykke fra FINN.no.
-
-                                              © 1996–2017 FINN.no AS</p>
-                            </div>
-                        </div>
-               </article>
+        <div class="main-container">
+               <div class="index-intro" id="showcase">
+                   <div class="bg-image"></div>
+               </div>
                <div class="container-fluid">
                     <div class="row">
                          <div class="col-sm-2 left1">
-                             <a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                 <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                             </a>
+
                          </div>
                          <div class="col-sm-2 left2">
-                             <a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                 <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                             </a>
+
                          </div>
                          <div class="col-sm-4 center">
                                 <h3>Login</h3>
@@ -97,50 +85,14 @@
                                     <a href="{{route('users.create')}}">Or sign up here</a>
                                 </div>
                          </div>
-                         <div class="col-sm-2 right1" ><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                 <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                             </a>
+                         <div class="col-sm-2 right1" ><
                          </div>
-                         <div class="col-sm-2 right2"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                 <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                             </a>
+                         <div class="col-sm-2 right2">
                          </div>
                     </div>
             </div>
-            <div class="gallery" >
-                <div class="container-fluid" >
-                    <div class="row">
-                        <div class="col-sm-2 b1"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                            </a>
-                        </div>
-                        <div class="col-sm-2 b2"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                            </a>
-                        </div>
-                        <div class="col-sm-2 b3"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                            </a>
-                        </div>
-                        <div class="col-sm-2 b4"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                            </a>
-                        </div>
-                        <div class="col-sm-2 b5"><a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                            </a>
-                        </div>
-                        <div class="col-sm-2 b6">
-                            <a href="https://source.unsplash.com/RF5sv5dv1Zc/1500x1000" data-fancybox data-caption="This image has a caption">
-                                <img src="https://source.unsplash.com/RF5sv5dv1Zc/240x160" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
-            </p>
 
 
         </div>
