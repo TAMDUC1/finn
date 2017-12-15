@@ -164,3 +164,30 @@ $('#last').html(data);
 
 
 <p>                            <img class="img-responsive img-rounded img-thumbnail" src="image/avatar.png">
+
+
+
+
+    PRofile:
+
+<h2>
+    @foreach($blog as $b)
+        <div class="blogSub">
+            <div>
+                Title:
+                {{$b['title']}}
+            </div>
+            <div class="content"><p5>Content:</p5>
+                {{$b['content']}}
+            </div>
+            <div> User_id: {{$b['user_id']}}</div>
+        </div>
+    @endforeach
+</h2>
+
+
+
+
+
+
+

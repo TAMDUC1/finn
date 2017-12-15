@@ -102,9 +102,8 @@
                         </input>
                     </div>
                     <div class="submit-button">
-                        <button type="submit" class="btn btn-primary" style="margin-left:38px" id="sm">Submit</button>
+                        <button type="submit" class="btn btn-primary" style="margin-left:38px" id="sm" ONCLICK="myFunction()">Submit</button>
                     </div>
-
                 </form>
                 <form method="post" action="{{action('BlogController@deleteAll')}}">
                     {{ csrf_field() }}
@@ -121,25 +120,13 @@
                 Your post
             </h1>
             <div class="blogabc">
-                <h2>
-                    @foreach($blog as $b)
-                        <div class="blogSub">
-                            <div>
-                                Title:
-                                {{$b['title']}}
-                            </div>
-                            <div class="content"><p5>Content:</p5>
-                                {{$b['content']}}
-                            </div>
-                            <div> User_id: {{$b['user_id']}}</div>
-                        </div>
-                    @endforeach
-                </h2>
+                <ul id="myList">
+                </ul>
             </div>
-
         </div>
     </div>
     <div class="row" id="blogPost">
+
     </div>
 </div>
 <script type="text/javascript">
@@ -158,6 +145,19 @@
         }
     });
     console.log('444');
+
+    var node = document.createElement("LI");
+    function myFunction() {
+        var bTitle = $('#title').val();
+        var bContent = $('#content').val();
+        var node = document.createElement("LI");
+        var textnode1 = document.createTextNode("Title :"+bTitle+";");
+        var textnode2 = document.createTextNode("Content :"+bTitle);
+        node.appendChild(textnode1);
+        node.appendChild(textnode2);
+        document.getElementById("myList").appendChild(node);
+    }
+
     $(document).ready(function () {
         $('#register').submit(function (event)
         {
@@ -167,12 +167,16 @@
             console.log('123');
             $.post('blogs',{ title: bTitle, content : bContent},function (data)
             {
-                console.log(data);
+                console.log(data.content);
                 console.log(data.title);
-                $('#blogPost').html("Title la " + data.title +" content la " + data.content);
-             //   $('#blogPost').html(data.content);//data.title;
+             //   $('#blogPost').html("Title la " + data.title +" content la " + data.content);
+               // $('#blogPost').html(data.content);//data.title;
             })
         })
+
+
+
+
         $('#sm').click(function ()
         {
             $.ajax
@@ -182,8 +186,13 @@
                 url:'getBlog',
                 success:function(data){
                     console.log(data);
-                    $('#blogPost').append("Title of Blog is "+data.title);
-                    $('#blogPost').append("Content of Blog is "+data.content);
+
+
+
+                 //
+                 //   $('#blogPost').appendChild("Content of Blog is "+data.content);
+
+
                 },
                 error: function (jqXhr,textStatus,errorMessage)
                 {
