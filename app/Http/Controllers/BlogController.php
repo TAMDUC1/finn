@@ -61,9 +61,19 @@ class BlogController extends Controller
     }
     public function getBlog(){
         $id= Session::get('user_id');
-        $blog = Blog::where('user_id', $id);
+        $blog = Blog::where('user_id', $id)
+        ->selectRaw('title,content')
+            ->get()
+        ;
+        return response($blog);
+      //  foreach ($blog as $b){
+        //    $results[]=['content' => $b->content];
+          //  $results[]=['title'=> $b->title];
+       // }
+        //var_dump($results); die();
         //$myJson = json_ecode($blog);
-        return response()->json($blog);
+
+
     }
     /**
      * Show the form for creating a new resource.
@@ -107,6 +117,7 @@ class BlogController extends Controller
     {
         $id= Session::get('user_id');
         $blog = Blog::where('user_id', $id);
+       // var_dump($blog); die();
         $blog -> delete();
         return back();
     }

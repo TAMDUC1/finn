@@ -117,15 +117,21 @@
         </div>
         <div class="col-sm-6" id="right-half">
             <h1>
-                Your post
+                 your new posts
             </h1>
             <div class="blogabc">
                 <ul id="myList">
                 </ul>
             </div>
+            <h1>
+                your last posts
+            </h1>
+            <div id="blogPost">
+
+            </div>
         </div>
     </div>
-    <div class="row" id="blogPost">
+    <div class="row">
 
     </div>
 </div>
@@ -145,21 +151,41 @@
         }
     });
     console.log('444');
-
     var node = document.createElement("LI");
     function myFunction() {
         var bTitle = $('#title').val();
         var bContent = $('#content').val();
         var node = document.createElement("LI");
-        var textnode1 = document.createTextNode("Title :"+bTitle+";");
-        var textnode2 = document.createTextNode("Content :"+bTitle);
+        var textnode1 = document.createTextNode("Title :"+bTitle+"\n");// chua co lay tu database
+        var textnode2 = document.createTextNode("Content :"+bContent);// day la lay truc tiep gia tri khi input
         node.appendChild(textnode1);
         node.appendChild(textnode2);
         document.getElementById("myList").appendChild(node);
     }
-
     $(document).ready(function () {
-        $('#register').submit(function (event)
+        $.ajax
+        (
+            {
+                dataType: 'json',
+                url:'getBlog',
+                success:function(data){
+                    console.log(data);
+                    console.log('vai');
+                    $.each(data,function (i,value) {
+                        var tr =$("<tr/>");
+                            tr.append($("<td/>",{
+                            text : " Title la :" + value.title + " content la : " + value.content
+                            }))
+                        console.log(tr);
+                        $('#blogPost').append(tr);
+                    })
+                },
+                error: function (jqXhr,textStatus,errorMessage)
+                {
+                    $('#blogPost').append('Error')
+                }
+            })
+        $('#register').submit(function (event)// save blogs
         {
             event.preventDefault();
             var bTitle = $('#title').val();
@@ -167,38 +193,19 @@
             console.log('123');
             $.post('blogs',{ title: bTitle, content : bContent},function (data)
             {
+                console.log(data);
                 console.log(data.content);
                 console.log(data.title);
-             //   $('#blogPost').html("Title la " + data.title +" content la " + data.content);
-               // $('#blogPost').html(data.content);//data.title;
+              //  $('#blogPost').html("Title:" + data.title +" content: " + data.content);
+               // cau lenh dung se bi delete cac post cu trong hien thi
             })
         })
-
-
-
-
         $('#sm').click(function ()
         {
-            $.ajax
-            (
-                {
-                dataType: 'json',
-                url:'getBlog',
-                success:function(data){
-                    console.log(data);
-
-
-
-                 //
-                 //   $('#blogPost').appendChild("Content of Blog is "+data.content);
-
-
-                },
-                error: function (jqXhr,textStatus,errorMessage)
-                {
-                    $('#blogPost').append('Error')
-                }
-            })
+            console.log('qua dc');
+            $.get("{{URL:: to('blog/read-data')}}",function (data) {
+               console.log(data);
+           })
         });
     })
 </script>

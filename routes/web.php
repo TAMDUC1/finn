@@ -79,6 +79,8 @@ Route::post('blogs',function (){
         return Response::json(Request::all());
     }
 });
+Route::get('/blog/read-data','BlogController@getBlog');
+
 Route::get('singleBlog','BlogController@singleBlog')->name('singleBlog');
 Route::post('deleteAll','BlogController@deleteAll')->name('deleteAll');
 Route::get('getBlog','BlogController@getBlog')->name('getBlog');
