@@ -51,6 +51,7 @@
                 <td>{{$phone=$U->phone}}</td>
                 <td>{{$address=$U->address}}</td>
                 <td><a href="{{action('UserController@edit', $id=$U->id)}}" class="btn btn-warning">Edit</a></td>
+                <td><a href="{{action('UserController@handleProviderCallback')}}" class="btn btn-warning">Xem</a></td>
                 <td>
                     <form action="{{action('UserController@destroy', $id=$U->id)}}" method="post">
                         {{csrf_field()}}

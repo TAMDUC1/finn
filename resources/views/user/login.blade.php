@@ -11,6 +11,10 @@
     <link href="{{asset('css/login1.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
+
+    <script type="text/javascript" src="https://connect.facebook.net/en_US/all.js"></script>
+
 </head>
 <body onload="startTime()">
     <nav class="navbar navbar-default" id="closenav">
@@ -81,10 +85,29 @@
                                     <button type="submit" class="btn btn-success" style="margin-left:38px">Login</button>
                                     </form>
                                 </div>
+                                <div>
+                                    <a href="{{route('redirectToProvider')}}" class="btn btn-primary" data-scope="email">Google</a>
+                                </div>
+                                 <div>
+                                  <a href="{{route('redirect')}}" class="btn btn-primary" data-scope="email">Facebook</a>
+                                 </div>
+                                <div>
+                                    <button onclick="login();">
+                                        Facebook login
+                                    </button>
+                                </div>
+                                 <div>
+                                     <button onclick="logout();">
+                                         Facebook logout
+                                     </button>
+                                 </div>
                                 <div class="signup">
                                     <a href="{{route('users.create')}}">Or sign up here</a>
                                 </div>
+                                <div id="java">
+                                </div>
                          </div>
+
                          <div class="col-sm-2 right1" ><
                          </div>
                          <div class="col-sm-2 right2">
@@ -97,6 +120,65 @@
 
         </div>
 <script type="text/javascript">
+
+    // login by javascript----
+
+
+   // window.fbAsyncInit = function() {
+       FB.init({
+            appId            : '891006804401694',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v2.11'
+        });
+    //};
+
+
+
+    FB.getLoginStatus(function (response) {
+        console.log('99999');
+
+        if(response.status==='connected'){
+            document.getElementById('java').innerHTML ='Ok you are connected to our Website via facebook acc';
+        } else if(response.status==='not_authorized'){
+            document.getElementById('java').innerHTML ='You are not connected';
+
+        }else{
+            document.getElementById('java').innerHTML ='You are not connected';
+
+        }
+    });
+    
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    
+    function login() {
+        FB.login(function (response) {
+            if(response.status==='connected'){
+                document.getElementById('java').innerHTML ='Ok you are connected to our Website via facebook acc';
+            } else if(response.status==='not_authorized'){
+                document.getElementById('java').innerHTML ='You are not connected';
+
+            }else{
+                document.getElementById('java').innerHTML ='You are not connected';
+            }
+        });
+    }
+    function logout() {
+        FB.logout(function (response) {
+
+        });
+
+    }
+    // end----
+
+
+
     console.log('1222');
     $.ajaxSetup({
         headers:
@@ -122,6 +204,8 @@
             })
         });
     })
+
+
     var getDate = new Date();
     function startTime() {
         var today = new Date();
@@ -150,6 +234,9 @@
             navStatus = true;
         }
     }
+</script>
+<script>
+
 </script>
 </body>
 </html>

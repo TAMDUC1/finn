@@ -27,16 +27,20 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque minus quas quo ut vel? Debitis odio placeat rem repudiandae. Adipisci aliquid at dignissimos distinctio doloremque ducimus earum fuga, natus, possimus ratione rem unde ut veritatis voluptate voluptatibus. Alias autem consectetur, consequuntur cum deserunt dolore dolores eos error, ipsam labore laboriosam molestiae molestias nihil obcaecati officia praesentium quidem rem velit voluptatem voluptatibus? Autem dolor in ipsam, ipsum provident repellat sunt velit.</p>
         </div>
         <div class="footer">
+            <td><a href="{{action('UserController@handleProviderCallback')}}" class="btn btn-warning">Xem</a></td>
+            <a href="callback">FB
+            </a>
+
             <div>
                 <a href="https://vnexpress.net">vnexpress</a>
             </div>
             <?php
                 $x=1;
-                while ($x < 3){
+                while ($x < 2){
                     echo " hi there!<br>";
                     $x++;
                 }
-                for($y = 0; $y <= 5; $y++){
+                for($y = 0; $y <= 2; $y++){
                     echo"hei there ";
                 }
                 $array1 = array("tam","hai","alo");

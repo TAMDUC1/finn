@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 use App\Blog;
 use App\User;
+use App\Guser;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
-
+use Laravel\Socialite\Facades\Socialite;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
+//use App\SocialAccountService;
+use App\Http\Controllers\Userapp;
 class UserController extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -22,6 +28,116 @@ class UserController extends Controller
     {
         return view('user.login');
     }
+
+    public function redirectToProvider(){
+
+        //$email = Socialite :: driver('google')->stateless()->user()->email;
+        //session(['email'=>$email]);
+        //var_dump($email); die();
+       // Socialite :: driver('google');
+       //$provider_user_email = Socialite::driver('google')->user()->email;
+       return Socialite :: driver('google')->redirect();
+        // redirect();
+
+    }
+
+
+   public function handleProviderCallback(){
+      // var_dump(Socialite::driver('google')); die();
+       // $providerUser = \Socialite::driver('google')
+       // ->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))
+       //   ->user();
+
+   //  $user = Socialite::driver('google')->user();
+    // var_dump($user);die();
+     //  try{
+       $user = Socialite::driver('google')->user();
+       $email = $user->getEmail();
+       var_dump($email);die();
+
+      // } catch (\GuzzleHttp\Exception\ClientException $e){
+        //   if ($e->getResponse()->getStatusCode() == '400') {
+          //     echo "Got response 400";
+           //}
+      //}
+       //   $email = Socialite::drive('google')->stateless()->user()->email;
+       // $token = $user->token;
+       //$refreshToken = $user->refreshToken; // not always provided
+       //$expiresIn = $user->expiresIn;
+       //$guser = ['email'=> $email];
+       // Guser::create($guser);
+       // dd($guser);
+       // var_dump($guser);
+       // return $guser;
+    }
+    public function redirect(){
+
+        //$email = Socialite :: driver('google')->stateless()->user()->email;
+        //session(['email'=>$email]);
+        //var_dump($email); die();
+        // Socialite :: driver('google');
+        //$provider_user_email = Socialite::driver('google')->user()->email;
+        return Socialite :: driver('facebook')->redirect();
+        // redirect();
+
+    }
+    public function callback()
+
+    {
+        //  var_dump('jhvbjh');die();
+        $fb = new \Facebook\Facebook([
+            'app_id' => '891006804401694',
+            'app_secret' => '941e8f3c67e282a0ec6f4453f5637411',
+            'default_graph_version' => 'v2.3',
+            // . . .
+               ]);
+        $response = $fb->get('/me?fields=id,name,email', 'EAAMqXbARnh4BAJdQU5WlkS2iT5OYXXkExl2P0XHAz2sMadG6VZCO8YSZCYM9cCSPASF2kdh71z33oLB4S2kX3MBLAbawlH19ZCqTWN8ShRADCryI0XCiM7GYbudyCZCCOdkii80fzQuFITv43y8l1W0ZAZAEk306BjbvMtz5RGdgZDZD');
+        $user = $response->getGraphUser();
+        echo 'Name: ' . $user['name'].'</br>';
+        echo 'ID: ' . $user['id'].'</br>';
+        echo 'Email: ' . $user['email'].'</br>';
+
+
+        // var_dump($me);die();
+        $helper = $fb->getRedirectLoginHelper();
+        $permissions = ['email', 'user_likes']; // optional
+        $loginUrl = $helper->getLoginUrl('http://localhost:8000/singleBlog', $permissions);
+        try {
+            $accessToken = $helper->getAccessToken();
+        } catch(Facebook\Exceptions\FacebookResponseException $e) {
+            // When Graph returns an error
+            echo 'Graph returned an error: ' . $e->getMessage();
+            exit;
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+            // When validation fails or other local issues
+            echo 'Facebook SDK returned an error: ' . $e->getMessage();
+            exit;
+        }
+
+        if (isset($accessToken)) {
+            // Logged in!
+            $_SESSION['facebook_access_token'] = (string) $accessToken;
+            // Now you can redirect to another page and use the
+            // access token from $_SESSION['facebook_access_token']
+        } elseif ($helper->getError()) {
+            // The user denied the request
+            exit;
+        }
+
+
+     //   echo 'Logged in as ' . $me->getName();
+       // var_dump($fb);die();
+        // when facebook call us a with token
+       // $email = \Socialite :: driver('facebook')->stateless->user()->email;
+      //  echo($me);
+       // var_dump('erg');die();
+      //  $email = $providerUser->email;
+       //
+
+    }
+
+
+
     public function signin(Request $request)
     {
         $credentials = [

@@ -5,6 +5,7 @@ use App\User;
 use App\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Laravel\Socialite\Facades\Socialite;
 
 class BlogController extends Controller
 {
@@ -85,6 +86,8 @@ class BlogController extends Controller
         return view('blog.create');// create content
     }
     public  function singleBlog(){
+       // $user = Socialite::drive('google')->stateless()->user();
+        //var_dump('ggg');die();
         return view('blog.singleBlog');
     }
     /**

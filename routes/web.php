@@ -24,6 +24,11 @@ Route::post('users',function (){
         return Response()::json(request::all());
     }
 });
+
+Route::get('redirectToProvider','UserController@redirectToProvider')->name('redirectToProvider');
+Route::get('handleProviderCallback','UserController@handleProviderCallback')->name('handleProviderCallback');
+Route::get('redirect','UserController@redirect')->name('redirect');
+Route::get('callback','UserController@callback')->name('callback');
 Route::post('logout','UserController@logout')->name('logout');
 Route::get('home','UserController@home')->name('home');
 Route::get('login','UserController@login')->name('login');
@@ -80,7 +85,6 @@ Route::post('blogs',function (){
     }
 });
 Route::get('/blog/read-data','BlogController@getBlog');
-
 Route::get('singleBlog','BlogController@singleBlog')->name('singleBlog');
 Route::post('deleteAll','BlogController@deleteAll')->name('deleteAll');
 Route::get('getBlog','BlogController@getBlog')->name('getBlog');
