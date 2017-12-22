@@ -15,6 +15,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
 //use App\SocialAccountService;
 use App\Http\Controllers\Userapp;
+
 class UserController extends Controller
 
 {
@@ -48,18 +49,36 @@ class UserController extends Controller
        // ->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))
        //   ->user();
 
-   //  $user = Socialite::driver('google')->user();
-    // var_dump($user);die();
-     //  try{
+       //  $user = Socialite::driver('google')->user();
+       // var_dump($user);die();
+       //  try{
        $user = Socialite::driver('google')->user();
-       $email = $user->getEmail();
-       var_dump($email);die();
+     //  $email = $user->getEmail();
+       $name = $user->getName();
+       // var_dump($user);die();
+       // setup the oauth identity
 
-      // } catch (\GuzzleHttp\Exception\ClientException $e){
-        //   if ($e->getResponse()->getStatusCode() == '400') {
-          //     echo "Got response 400";
-           //}
-      //}
+
+      $newUser = User::firstOrCreate(['email'=>$user->getEmail()],['name' => $user->getName()]);
+
+       return redirect()->route('root')->with('success','User has been updated');
+
+
+
+
+
+
+
+
+
+
+
+
+       // } catch (\GuzzleHttp\Exception\ClientException $e){
+       //   if ($e->getResponse()->getStatusCode() == '400') {
+       //     echo "Got response 400";
+       //}
+       //}
        //   $email = Socialite::drive('google')->stateless()->user()->email;
        // $token = $user->token;
        //$refreshToken = $user->refreshToken; // not always provided
@@ -96,8 +115,6 @@ class UserController extends Controller
         echo 'Name: ' . $user['name'].'</br>';
         echo 'ID: ' . $user['id'].'</br>';
         echo 'Email: ' . $user['email'].'</br>';
-
-
         // var_dump($me);die();
         $helper = $fb->getRedirectLoginHelper();
         $permissions = ['email', 'user_likes']; // optional

@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Response;
 use App\User;
 
