@@ -48,7 +48,6 @@ class UserController extends Controller
        // $providerUser = \Socialite::driver('google')
        // ->setHttpClient(new \GuzzleHttp\Client(['verify' => false]))
        //   ->user();
-
        //  $user = Socialite::driver('google')->user();
        // var_/*dump($user);die();
        //  try{
@@ -60,25 +59,8 @@ class UserController extends Controller
        // setup the oauth identity
        // create a new user in database if user is not found!!!
       $newUser = User::firstOrCreate(['email'=>$user->getEmail()],['name' => $user->getName()]);
-
       session(['email'=>$email,'name'=>$name,'avatar' => $avatar]);
-
            return redirect()->route('root')->with('success','User has been created');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
        // } catch (\GuzzleHttp\Exception\ClientException $e){
        //   if ($e->getResponse()->getStatusCode() == '400') {
        //     echo "Got response 400";
@@ -94,9 +76,7 @@ class UserController extends Controller
        // var_dump($guser);
        // return $guser;
     }
-
     public function redirect(){
-
         //$email = Socialite :: driver('google')->stateless()->user()->email;
         //session(['email'=>$email]);
         //var_dump($email); die();
@@ -104,9 +84,7 @@ class UserController extends Controller
         //$provider_user_email = Socialite::driver('google')->user()->email;
         return Socialite :: driver('facebook')->redirect();
         // redirect();
-
     }
-
     public function callback()
     {
         //  var_dump('jhvbjh');die();
@@ -121,7 +99,13 @@ class UserController extends Controller
         echo 'Name: ' . $user['name'].'</br>';
         echo 'ID: ' . $user['id'].'</br>';
         echo 'Email: ' . $user['email'].'</br>';
+        echo 'Avatar:'.'http://graph.facebook.com/'.$user['id'].'/picture'.'</br>';
+        $avatar = 'http://graph.facebook.com/'.$user['id'].'/picture';
+       // echo 'URL: ' . $user['id'].'/picture';
         // var_dump($me);die();
+        // create new user if needed
+        $newUser = User::firstOrCreate(['email'=>$user['email']],['name' => $user['name']]);
+        session(['email'=>$user['email'],'name'=>$user['name'],'avatar'=>$avatar]);
         $helper = $fb->getRedirectLoginHelper();
         $permissions = ['email', 'user_likes']; // optional
         $loginUrl = $helper->getLoginUrl('http://localhost:8000/singleBlog', $permissions);
@@ -153,11 +137,8 @@ class UserController extends Controller
        // var_dump('erg');die();
       //  $email = $providerUser->email;
        //
-
+        return redirect()->route('root')->with('success','User has been created');
     }
-
-
-
     public function signin(Request $request)
     {
         $credentials = [
@@ -183,7 +164,6 @@ class UserController extends Controller
           // var_dump('tamsieunhan');die;
             return view ('user.login');
     }
-
     public function logout()
     {
         Auth::logout();

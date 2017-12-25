@@ -72,8 +72,15 @@ input[type=text] {
 input[type=text]:focus {
     width: 100%;
 }
-
+.container{
+    border-style: solid;
+    border-width: thin;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
 .wrapper{
+    margin-top: 0.1em;
 top: 1000px;
 display: grid;
 
@@ -87,8 +94,13 @@ grid-auto-rows: minmax(700px,auto);
     padding: 1em;
     border-style: solid;
     border-width: thin;
+    border-radius: 5px;
 }
 .wrapper > div:nth-child(odd){
     background-color: #f2fffa;
     padding: 1em;
+}
+button:hover{
+    background-color: lightblue;
+    border-radius: 5px;
 }
