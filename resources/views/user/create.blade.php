@@ -9,7 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
     <meta charset="utf-8">
-    <link href="{{asset('css/login1.css')}}" rel="stylesheet">
     <title>Finn </title>
 </head>
 <body>
@@ -98,45 +97,6 @@
                 </div>
             </div>
     </div>
-
-    <div class="gallery">
-        <div id="box1">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae expedita molestias nihil nobis nostrum officiis quis quisquam sint vel?</p>
-        </div>
-        <div id="box2">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam architecto eligendi error, esse excepturi facere facilis fugit inventore ipsum minus molestiae neque odit quasi quisquam recusandae veritatis, vero voluptates?</p>
-        </div>
-        <div id="box3"></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet cumque debitis eligendi enim eos est, eum expedita, illo in ipsa mollitia non, obcaecati odit praesentium provident quis tempora temporibus veritatis voluptatibus? Dolorum earum minus, optio quae reprehenderit sequi tempore.</p>
-    </div>
-    <div class="wrapper">
-        <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, excepturi, ipsam? Aperiam aspernatur modi natus nemo perferendis, unde. A ab adipisci, at commodi consectetur consequatur cum cumque dicta ducimus, enim excepturi illo incidunt inventore iste laudantium magnam, maiores mollitia nemo non omnis optio provident quibusdam quidem quisquam quo recusandae reprehenderit tenetur ullam ut vel veniam vero voluptas voluptatum? Amet aspernatur deserunt facere fugit impedit in inventore iure libero nam numquam obcaecati, perferendis quod reprehenderit saepe soluta sunt tempora vel voluptatibus.
-        </div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores facere fugiat illum mollitia, sequi soluta. Aliquid culpa dolore iusto quas!</div>
-
-        <div class="nested">
-            <div>Lorem</div>
-            <div>Lorem</div>
-            <div>Lorem</div>
-            <div>Lorem</div>
-            <div>Lorem</div>
-            <div>Lorem</div>
-
-        </div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores facere fugiat illum mollitia, sequi soluta. Aliquid culpa dolore iusto quas!</div>
-        <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, excepturi, ipsam? Aperiam aspernatur modi natus nemo perferendis, unde. A ab adipisci, at commodi consectetur consequatur cum cumque dicta ducimus, enim excepturi illo incidunt inventore iste laudantium magnam, maiores mollitia nemo non omnis optio provident quibusdam quidem quisquam quo recusandae reprehenderit tenetur ullam ut vel veniam vero voluptas voluptatum? Amet aspernatur deserunt facere fugit impedit in inventore iure libero nam numquam obcaecati, perferendis quod reprehenderit saepe soluta sunt tempora vel voluptatibus.
-        </div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores facere fugiat illum mollitia, sequi soluta. Aliquid culpa dolore iusto quas!</div>
-
-        <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, excepturi, ipsam? Aperiam aspernatur modi natus nemo perferendis, unde. A ab adipisci, at commodi consectetur consequatur cum cumque dicta ducimus, enim excepturi illo incidunt inventore iste laudantium magnam, maiores mollitia nemo non omnis optio provident quibusdam quidem quisquam quo recusandae reprehenderit tenetur ullam ut vel veniam vero voluptas voluptatum? Amet aspernatur deserunt facere fugit impedit in inventore iure libero nam numquam obcaecati, perferendis quod reprehenderit saepe soluta sunt tempora vel voluptatibus.
-        </div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores facere fugiat illum mollitia, sequi soluta. Aliquid culpa dolore iusto quas!</div>
-
-    </div>
-
     <script type="text/javascript">
         $.ajaxSetup({
                 headers: {
@@ -147,7 +107,7 @@
         {
             $('#register').submit(function ()
             {
-               var aName = $('#name').val();
+                var aName = $('#name').val();
                 var aEmail = $('#email').val();
                 var aPassword = $('#password').val();
                 var aPhone = $('#phone').val();

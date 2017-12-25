@@ -34,7 +34,7 @@ class UserController extends Controller
 
         //$email = Socialite :: driver('google')->stateless()->user()->email;
         //session(['email'=>$email]);
-        //var_dump($email); die();
+        //var_dump($email); die();?
        // Socialite :: driver('google');
        //$provider_user_email = Socialite::driver('google')->user()->email;
        return Socialite :: driver('google')->redirect();
@@ -50,18 +50,23 @@ class UserController extends Controller
        //   ->user();
 
        //  $user = Socialite::driver('google')->user();
-       // var_dump($user);die();
+       // var_/*dump($user);die();
        //  try{
        $user = Socialite::driver('google')->user();
-     //  $email = $user->getEmail();
+       $email = $user->getEmail();
        $name = $user->getName();
-       // var_dump($user);die();
+       $avatar = $user->getAvatar();
+       // var_dump($avatar);die();
        // setup the oauth identity
-
-
+       // create a new user in database if user is not found!!!
       $newUser = User::firstOrCreate(['email'=>$user->getEmail()],['name' => $user->getName()]);
 
-       return redirect()->route('root')->with('success','User has been updated');
+      session(['email'=>$email,'name'=>$name,'avatar' => $avatar]);
+
+           return redirect()->route('root')->with('success','User has been created');
+
+
+
 
 
 
@@ -89,6 +94,7 @@ class UserController extends Controller
        // var_dump($guser);
        // return $guser;
     }
+
     public function redirect(){
 
         //$email = Socialite :: driver('google')->stateless()->user()->email;
@@ -100,8 +106,8 @@ class UserController extends Controller
         // redirect();
 
     }
-    public function callback()
 
+    public function callback()
     {
         //  var_dump('jhvbjh');die();
         $fb = new \Facebook\Facebook([
@@ -130,7 +136,6 @@ class UserController extends Controller
             echo 'Facebook SDK returned an error: ' . $e->getMessage();
             exit;
         }
-
         if (isset($accessToken)) {
             // Logged in!
             $_SESSION['facebook_access_token'] = (string) $accessToken;
@@ -140,8 +145,6 @@ class UserController extends Controller
             // The user denied the request
             exit;
         }
-
-
      //   echo 'Logged in as ' . $me->getName();
        // var_dump($fb);die();
         // when facebook call us a with token
@@ -180,16 +183,19 @@ class UserController extends Controller
           // var_dump('tamsieunhan');die;
             return view ('user.login');
     }
+
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('root');
+        Session::flush();
+        return redirect()->route('login');
     }
 
     public function home()
     {
      return view('user.home');
     }
+
     public function profile()
     {
         $id= Session::get('user_id');
@@ -248,6 +254,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
        /* var_dump($request->email);
@@ -261,9 +268,7 @@ class UserController extends Controller
             'phone' => 'required',
             'address' => 'required'
         ]);
-
         $user['password'] = bcrypt($user['password']);
-
         User::create($user);
         return back()->with('success','User has been added');;
     }

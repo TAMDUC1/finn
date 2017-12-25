@@ -13,17 +13,27 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-md-12" id="nav_bar" style="background-color: #f6ffff">
+        <div class="col-md-9" id="nav_bar" style="background-color: #f6ffff">
             <ul>
                  <span>
                     <a href="{{route('root')}}">Home</a>
                 </span>
-
                 <span>
                     <a href="{{route('blogs.index')}}">Post</a>
                 </span>
-
             </ul>
+        </div>
+        <div class="col-sm-3">
+                <img src={{session('avatar')}}>
+                <h4>{{session('name')}}</h4>
+                <h4>{{session('email')}}</h4>
+                <div class="log">
+                    <form method="post" action="{{action('UserController@logout')}}">
+                        {{csrf_field()}}
+                        <button type="submit" class="btn btn-success">
+                            Logout</button>
+                    </form>
+            </div>
         </div>
     <br/>
     @if (\Session::has('success'))
