@@ -6,22 +6,19 @@
     <title>Index Page</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <script>
         $('delete').click(function() {
             if(confirm('Are you sure'))
                 document.location = 'ProductController@destroy';
         });
     </script>
-
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-md-12" id="nav_bar" style="background-color: #f6ffff">
             <ul> <span>
-                    <a href="{{route('root')}}">Home</a>
+                    <a href="{{route('root')}}">Finn</a>
                 </span>
                 <span>
                     <a href="{{route('users.create')}}">Sign Up</a>
@@ -35,8 +32,23 @@
                 <span>
                     <a href="{{route('blogs.index')}}">Post</a>
                 </span>
+                <span>
+                    <div class="info">
+                          <h4> <a href="{{route('profile')}}">
+                              <img src={{session('avatar')}}>
+                          </a></h4>
+                          <div class="log">
+                              <form method="post" action="{{action('UserController@logout')}}">
+                                  {{csrf_field()}}
+                                  <button type="submit" class="btn btn-success">
+                                      Logout
+                                  </button>
+                              </form>
+                    </div>
+                </span>
             </ul>
         </div>
+
         <br/>
         @if (\Session::has('success'))
             <div class="alert alert-success">
@@ -90,5 +102,5 @@
             </tbody>
         </table>
     </div>
-{{ $product->links() }}
+{{$product->links()}}
 </body>

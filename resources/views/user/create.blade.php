@@ -12,55 +12,38 @@
     <title>Finn </title>
 </head>
 <body>
+    <div style="background-color: #f6ffff">
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="{{route('root')}}">Finn
-                    </a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="{{route('login')}}">Login</a>
-                    </li>
-
-                    <li>
-                        <a href="{{route('users.index')}}">Admin</a>
-                    </li>
-                    <li>
-                        <a href="{{route('blogs.index')}}">Post</a>
-                    </li>
-
-                    <li class="dropdown">
-                        <a
-                                class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp;Sample
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">List1
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">List1
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">List1
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+        <div class="container-fluid"style="background-color: #f6ffff">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{route('root')}}">Finn
+                </a>
+            </div>
+            <ul class="nav navbar-nav" >
+                <li>
+                    <a href="{{route('root')}}">Home</a>
+                </li>
+                <li>
+                    <a href="{{route('login')}}">Login</a>
+                </li>
+                <li>
+                    <a href="{{route('users.index')}}">Admin</a>
+                </li>
+                <li>
+                    <a href="{{route('blogs.index')}}">Post</a>
+                </li>
+            </ul>
         </div>
     </nav>
-    <div class="main-container">
-            <div class="row">
-                <div class="col-sm-2 left">
-                </div>
-                <div class="col-sm-2 left">
-                </div>
-                <div class="col-sm-4 center1">
-                        <h2>Sign Up</h2><br  />
-                        @if ($errors->any())
+    <div class="main-container"style="background-color: #f6ffff">
+        <div class="row">
+            <div class="col-sm-2 left">
+            </div>
+            <div class="col-sm-2 left">
+            </div>
+            <div class="col-sm-4 center1">
+                <h2>Sign Up</h2><br  />
+                @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -68,34 +51,35 @@
                             @endforeach
                         </ul>
                     </div>
-                        <br />
-                        @endif
-                        @if (\Session::has('success'))
-                            <div class="alert alert-success">
-                                <p>{{ \Session::get('success') }}</p>
-                            </div>
-                        <br />
-                         @endif
-                    <form method="post" action="{{url('users')}}" id="register" >
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        {{csrf_field()}}
-                        <label for="name">Name:</label>
-                        <input type="text" class="form-control" name="name" id="name"/>
-                        <label for="email">Email:</label>
-                        <input type="text" class="form-control" name="email" id="email"/>
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" name="password" id="password"/>
-                        <label for="phone">Phone:</label>
-                        <input type="tel" class="form-control" name="phone" id="phone"/>
-                        <label for="address">Address:</label>
-                        <input type="text" class="form-control" name="address" id="address"/>
-                        <button type="submit" class="btn btn-primary"  value="Resgister" style="margin-left:38px">Submit</button>
-                    </form>
-                    <div id="postRequestData"></div>
+                    <br />
+                @endif
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        <p>{{ \Session::get('success') }}</p>
                     </div>
-                <div class="col-sm-4 right" >
-                </div>
+                    <br />
+                @endif
+                <form method="post" action="{{url('users')}}" id="register" >
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    {{csrf_field()}}
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" name="name" id="name"/>
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" name="email" id="email"/>
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" name="password" id="password"/>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" class="form-control" name="phone" id="phone"/>
+                    <label for="address">Address:</label>
+                    <input type="text" class="form-control" name="address" id="address"/>
+                    <button type="submit" class="btn btn-primary"  value="Resgister" style="margin-left:40%">Submit</button>
+                </form>
+                <div id="postRequestData"></div>
             </div>
+            <div class="col-sm-4 right" >
+            </div>
+        </div>
+    </div>
     </div>
     <script type="text/javascript">
         $.ajaxSetup({

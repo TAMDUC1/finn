@@ -2,7 +2,6 @@
 <html lang="{{ app()->getLocale() }}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
     <meta charset="utf-8">
@@ -12,70 +11,29 @@
     <title>Finn</title>
 </head>
 <body>
-<nav class="navbar navbar-default" id="closenav">
-    <div class="container-fluid"  onclick ="toggleNav()">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="{{route('root')}}">Finn
-            </a>
+    <nav >
+        <div>
+            <ul >
+                <li>
+                    <a href="{{route('root')}}">Finn</a>
+                </li>
+                <li>
+                    <a href="{{route('users.create')}}">Sign Up</a>
+                </li>
+                <li>
+                    <a href="{{route('users.index')}}">Admin</a>
+                </li>
+                <li>
+                    <a href="{{route('blogs.index')}}">Post</a>
+                </li>
+            </ul>
         </div>
-        <ul class="nav navbar-nav">
-            <li>
-                <a href="{{route('users.create')}}">Sign Up</a>
-            </li>
-            <li>
-                <a href="{{route('users.index')}}">Admin</a>
-            </li>
-            <li>
-                <a href="{{route('blogs.index')}}">Post</a>
-            </li>
-            <li class="dropdown">
-                <a
-                        class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp <span class="glyphicon glyphicon-time"></span></p>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a
-                                href="#">List1
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">List1
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">List1
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <div class="date" id="txt">
-                </div>
-            </li>
-            <li>
-                <form method="post" action="{{action('UserController@logout')}}">
-                    {{ csrf_field() }}
-                    <div class="logout-button">
-                        <label>
-                            <button type="submit" class="btn btn-success" style="margin-left:38px">Log out</button>
-                        </label>
-                    </div>
-                </form>
+    </nav>
+    <div class="container">
+        <div >
+        <div class="col-sm-6">
 
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6" id="left-half">
-            <h1>
-                You are logged in
-            </h1>
-            <h2>
-                Here you can post your advertisement
-            </h2>
-            <div id="test">
+            <div class="test" id="test">
                 <form id="register">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     {{csrf_field()}}
@@ -114,27 +72,27 @@
                 </form>
             </div>
         </div>
-        <div class="col-sm-6" id="right-half">
-            <h1>
-                 your new posts
-            </h1>
-            <div class="blogabc">
-                <ul id="myList">
-                </ul>
-            </div>
-            <h1>
-                your last posts
-            </h1>
-            <div id="blogPost">
-
+        </div>
+        <div>
+           <h3>
+               Your Post
+           </h3>
+            <div class="blogPost" id="blogPost" title="Your Post" >
             </div>
         </div>
-    </div>
-    <div class="row">
-
-    </div>
-</div>
-<script type="text/javascript">
+        <div >
+        <img src={{session('avatar')}}>
+        <form method="post" action="{{action('UserController@logout')}}">
+            {{ csrf_field() }}
+            <div class="logout-button">
+                <label>
+                    <button type="submit" >Log out</button>
+                </label>
+            </div>
+        </form>
+        </div>
+        </div>
+    <script type="text/javascript">
     var thedata = '{"name":"tam","age":"31"}';
     var obj =JSON.parse(thedata);
     var ErrorMessage = 'Error roi';
@@ -154,13 +112,21 @@
     function myFunction() {
         var bTitle = $('#title').val();
         var bContent = $('#content').val();
-        var node = document.createElement("LI");
+      /*  var node = document.createElement("LI");
         var textnode1 = document.createTextNode("Title :"+bTitle+"\n");// chua co lay tu database
         var textnode2 = document.createTextNode("Content :"+bContent);// day la lay truc tiep gia tri khi input
         node.appendChild(textnode1);
         node.appendChild(textnode2);
         document.getElementById("myList").appendChild(node);
+
+        1 dong code duoi thay cho 5 dong code tren
+
+        */
+        $('#blogPost').prepend('Title la :'+bTitle +' '+'Content la: '+ bContent);
+        $('#blogPost').prepend("<tr/>");
     }
+
+    // $('#myList').append(bTitle+'1');
     $(document).ready(function () {
         $.ajax
         (
@@ -168,15 +134,15 @@
                 dataType: 'json',
                 url:'getBlog',
                 success:function(data){
-                    console.log(data);
-                    console.log('vai');
-                    $.each(data,function (i,value) {
+                    $.each(data,function (i,value)
+                    {
                         var tr =$("<tr/>");
-                            tr.append($("<td/>",{
+                            tr.append($("<td/>",
+                            {
                             text : " Title la :" + value.title + " content la : " + value.content
                             }))
-                        console.log(tr);
-                        $('#blogPost').append(tr);
+
+                        $('#blogPost').prepend(tr);
                     })
                 },
                 error: function (jqXhr,textStatus,errorMessage)
@@ -184,6 +150,7 @@
                     $('#blogPost').append('Error')
                 }
             })
+
         $('#register').submit(function (event)// save blogs
         {
             event.preventDefault();
@@ -208,5 +175,6 @@
         });
     })
 </script>
+
 </body>
 </html>

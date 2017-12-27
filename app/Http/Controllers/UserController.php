@@ -55,12 +55,17 @@ class UserController extends Controller
        $email = $user->getEmail();
        $name = $user->getName();
        $avatar = $user->getAvatar();
-       // var_dump($avatar);die();
+       $id = $user->getId();// id cua google
+       // var_dump($id);die();
        // setup the oauth identity
        // create a new user in database if user is not found!!!
-      $newUser = User::firstOrCreate(['email'=>$user->getEmail()],['name' => $user->getName()]);
-      session(['email'=>$email,'name'=>$name,'avatar' => $avatar]);
-           return redirect()->route('root')->with('success','User has been created');
+      $newUser = User::firstOrCreate(['email'=>$user->getEmail()],['name' => $user->getName()]);//id cua system
+     // var_dump($newUser['id']);die();
+      session(['email'=>$email,'name'=>$name,'avatar' => $avatar,'user_id'=>$newUser['id']]);
+     // var_dump($newUser['id']);die();
+        //   return redirect()->route('root')->with('success','User has been created');
+             return redirect()->route('profile');
+
        // } catch (\GuzzleHttp\Exception\ClientException $e){
        //   if ($e->getResponse()->getStatusCode() == '400') {
        //     echo "Got response 400";
@@ -101,15 +106,18 @@ class UserController extends Controller
         echo 'Email: ' . $user['email'].'</br>';
         echo 'Avatar:'.'http://graph.facebook.com/'.$user['id'].'/picture'.'</br>';
         $avatar = 'http://graph.facebook.com/'.$user['id'].'/picture';
-       // echo 'URL: ' . $user['id'].'/picture';
+        // echo 'URL: ' . $user['id'].'/picture';
         // var_dump($me);die();
         // create new user if needed
         $newUser = User::firstOrCreate(['email'=>$user['email']],['name' => $user['name']]);
-        session(['email'=>$user['email'],'name'=>$user['name'],'avatar'=>$avatar]);
+        // session(['email'=>$email,'name'=>$name,'avatar' => $avatar,'user_id'=>$newUser['id']]);
+       // var_dump($newUser['id']);die();
+        session(['email'=>$user['email'],'name'=>$user['name'],'avatar'=>$avatar],['user_id'=>$newUser['id']]);
+     //   var_dump($newUser['id']);die();
         $helper = $fb->getRedirectLoginHelper();
-        $permissions = ['email', 'user_likes']; // optional
-        $loginUrl = $helper->getLoginUrl('http://localhost:8000/singleBlog', $permissions);
-        try {
+        //  $permissions = ['email', 'user_likes']; // optional
+        //$loginUrl = $helper->getLoginUrl('http://localhost:8000/singleBlog', $permissions);
+      /*  try {
             $accessToken = $helper->getAccessToken();
         } catch(Facebook\Exceptions\FacebookResponseException $e) {
             // When Graph returns an error
@@ -128,7 +136,7 @@ class UserController extends Controller
         } elseif ($helper->getError()) {
             // The user denied the request
             exit;
-        }
+        } */
      //   echo 'Logged in as ' . $me->getName();
        // var_dump($fb);die();
         // when facebook call us a with token
@@ -137,7 +145,9 @@ class UserController extends Controller
        // var_dump('erg');die();
       //  $email = $providerUser->email;
        //
-        return redirect()->route('root')->with('success','User has been created');
+        return redirect()->route('profile');
+
+      //  return redirect()->route('root')->with('success','User has been created');
     }
     public function signin(Request $request)
     {
@@ -178,7 +188,10 @@ class UserController extends Controller
 
     public function profile()
     {
-        $id= Session::get('user_id');
+        $id = Session::get('user_id');
+        if(empty($id)){
+            return redirect()->route('login');
+        }
         //  $user=Auth::user();
         //if(auth::user()){
         //  return view('user.profile');
@@ -242,15 +255,17 @@ class UserController extends Controller
         die;*/
 
         $user = $this->validate(request(),[
-            'name' => 'required',
-            'email' => 'required',
-            'password'=>'required',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password'=>'required|string|min:6',
             'phone' => 'required',
             'address' => 'required'
         ]);
         $user['password'] = bcrypt($user['password']);
         User::create($user);
-        return back()->with('success','User has been added');;
+        return redirect()->route('login');
+
+       // return back()->with('success','User has been added');
     }
 
     /**

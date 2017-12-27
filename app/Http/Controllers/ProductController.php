@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-       // $product = Product::all()->toArray(); // ok here
+        // $product = Product::all()->toArray(); // ok here
         //  $product = Product::orderBy('created_at','desc')->paginate(15);
          $product = DB :: table('products')->paginate(15);
         // $blog = Blog::orderBy('created_at','desc');
@@ -28,7 +28,7 @@ class ProductController extends Controller
         // return view('products.index',compact('product'));
         // $product = DB::table('products')->paginate(5)->toArray();
         //  var_dump($product);die();
-         //return view('products.index')->with($product);
+        //return view('products.index')->with($product);
          return view('products.index',compact('product'));
     }
     /**

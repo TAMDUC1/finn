@@ -11,19 +11,20 @@
     <link href="{{asset('css/login1.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
-
-
     <script type="text/javascript" src="https://connect.facebook.net/en_US/all.js"></script>
-
 </head>
 <body onload="startTime()">
-    <nav class="navbar navbar-default" id="closenav">
+    <nav class="navbar navbar-default" id="closenav" style="background-color: #f6ffff">
        <div class="container-fluid"  onclick ="toggleNav()">
            <div class="navbar-header">
                <a class="navbar-brand" href="{{route('root')}}">Finn
                </a>
            </div>
            <ul class="nav navbar-nav">
+               <li>
+                   <a href="{{route('root')}}">Home</a>
+
+               </li>
                <li>
                    <a href="{{route('users.create')}}">Sign Up</a>
                </li>
@@ -33,29 +34,8 @@
                <li>
                    <a href="{{route('blogs.index')}}">Post</a>
                </li>
-               <li class="dropdown">
-                   <a
-                       class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp <span class="glyphicon glyphicon-time"></span></p>
-                   </a>
-                   <ul class="dropdown-menu">
-                       <li>
-                           <a
-                               href="#">List1
-                           </a>
-                       </li>
-                       <li>
-                           <a
-                               href="#">List1
-                           </a>
-                       </li>
-                       <li>
-                           <a href="#">List1
-                           </a>
-                       </li>
-                   </ul>
-               </li>
                <li>
-                   <div class="date" id="txt">
+                   <div class="date" id="txt" style="color: #0c092a" >
                    </div>
                </li>
            </ul>
@@ -68,10 +48,8 @@
                <div class="container-fluid">
                     <div class="row">
                          <div class="col-sm-2 left1">
-
                          </div>
                          <div class="col-sm-2 left2">
-
                          </div>
                          <div class="col-sm-4 center">
                                 <h3>Login</h3>
@@ -91,7 +69,12 @@
                                  <div>
                                   <a href="{{route('redirect')}}" class="btn btn-primary" data-scope="email">Facebook</a>
                                  </div>
-                                <div>
+
+
+
+
+                      {{-- javascript login
+                        <div>
                                     <button onclick="login();">
                                         Facebook login
                                     </button>
@@ -101,6 +84,8 @@
                                          Facebook logout
                                      </button>
                                  </div>
+                       --}}
+
                                 <div class="signup">
                                     <a href="{{route('users.create')}}">Or sign up here</a>
                                 </div>
@@ -132,23 +117,16 @@
             version          : 'v2.11'
         });
     //};
-
-
-
     FB.getLoginStatus(function (response) {
         console.log('99999');
-
         if(response.status==='connected'){
             document.getElementById('java').innerHTML ='Ok you are connected to our Website via facebook acc';
         } else if(response.status==='not_authorized'){
-            document.getElementById('java').innerHTML ='You are not connected';
-
+            document.getElementById('java').innerHTML ='You are not connected via facebook';
         }else{
-            document.getElementById('java').innerHTML ='You are not connected';
-
+            document.getElementById('java').innerHTML ='You are not connected via facebook';
         }
     });
-    
     (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {return;}
@@ -162,10 +140,10 @@
             if(response.status==='connected'){
                 document.getElementById('java').innerHTML ='Ok you are connected to our Website via facebook acc';
             } else if(response.status==='not_authorized'){
-                document.getElementById('java').innerHTML ='You are not connected';
+                document.getElementById('java').innerHTML ='You are not connected via facebook';
 
             }else{
-                document.getElementById('java').innerHTML ='You are not connected';
+                document.getElementById('java').innerHTML ='You are not connected via facebook';
             }
         });
     }

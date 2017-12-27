@@ -63,7 +63,7 @@ class BlogController extends Controller
     public function getBlog(){
         $id= Session::get('user_id');
         $blog = Blog::where('user_id', $id)
-        ->selectRaw('title,content')
+            ->selectRaw('title,content')
             ->get()
         ;
         return response($blog);
@@ -73,8 +73,6 @@ class BlogController extends Controller
        // }
         //var_dump($results); die();
         //$myJson = json_ecode($blog);
-
-
     }
     /**
      * Show the form for creating a new resource.

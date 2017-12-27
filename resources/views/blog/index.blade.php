@@ -5,7 +5,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
     <link href="{{ asset('css/abc.css') }}" rel="stylesheet" type="text/css" >
@@ -27,86 +26,46 @@
 
 </head>
 <body>
+    <div class="navbar">
+        <ul>
+            <li>
+                <a href="{{route('root')}}">Home</a>
+            </li>
+            <li>
+                <a href="{{route('users.create')}}">Sign Up</a>
+            </li>
+            <li>
+                <a href="{{route('login')}}">Login</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+            <div class="luachon">
+            </div>
+            <div class="luacon2" >
+                @foreach($blog1 as $b)
+                    <div class="block">
+                        <p>Title:{{$b['title']}}</p>
+                        <p>Content:{{$b['content']}}</p>
+                        <p>From user:{{$b['user_id']}}</p>
+                    </div>
+                @endforeach
+            </div>
+            <div class="luachon3">
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-              <span>
-                    <a href="{{route('root')}}">Home</a>
-                </span>
-            <span>
-                 <a href="{{route('users.create')}}">Sign Up</a>
-            </span>
-            <span>
-                 <a href="{{route('login')}}">Login</a>
-            </span>
-        </div>
+                <a href="{{route('profile')}}">
+                    <img src={{session('avatar')}}>
+                </a>                    <h4>{{session('name')}}</h4>
+                <div class="log">
+                    <form method="post" action="{{action('UserController@logout')}}">
+                        {{csrf_field()}}
+                        <button type="submit" class="btn btn-success">
+                            Logout
+                        </button>
+                    </form>
+                </div>
+
+            </div>
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-3 col-sm-6">
-            <form>
-                <input type="text" name="search" placeholder="Search..">
-            </form>
-            <h1>Car</h1>
-            <form>
-                <div>
-                    <input id="blah" type="checkbox"><label for="blah">Audi</label>
-                </div>
-            </form>
-            <form>
-                <div>
-                    <input id="blah" type="checkbox"><label for="blah">BMW</label>
-                </div>
-            </form>
-            <form>
-                <div>
-                    <input id="blah" type="checkbox"><label for="blah">ABC</label>
-                </div>
-            </form>
-            <h1>Watch</h1>
-            <form>
-                <div>
-                    <input id="blah" type="checkbox"><label for="blah">Seiko</label>
-                </div>
-            </form>
-            <form>
-                <div>
-                    <input id="blah" type="checkbox"><label for="blah">Rolex</label>
-                </div>
-            </form>
-            <h1>Job</h1>
-            <form>
-                <div>
-                    <input id="blah" type="checkbox"><label for="blah">Hot Girl</label>
-                </div>
-            </form>
-            <form>
-                <div>
-                    <input id="blah" type="checkbox"><label for="blah">Chili</label>
-                </div>
-            </form>
-            <form>
-                <div>
-                    <input id="blah" type="checkbox"><label for="blah">Fly</label>
-                </div>
-            </form>
-            <button type="button" class="btn btn-warning" id="getRequest">Show more Post</button>
-            <button id="ajaxBtn">Show more Post</button>
-        </div>
-        <div id="comments" class="col-md-6 col-sm-6">
-            @foreach($blog1 as $b)
-                <div class="block">
-                    <p>Title:{{$b['title']}}</p>
-                    <p>Content:{{$b['content']}}</p>
-                    <p>From user:{{$b['user_id']}}</p>
-                </div>
-            @endforeach
-        </div>
-    </div>
-    <div class="col-md-2">
-    </div>
-</div>
 </body>
 </html>
