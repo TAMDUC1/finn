@@ -12,43 +12,48 @@
                 document.location = 'ProductController@destroy';
         });
     </script>
+    <link href="{{ asset('css/userIndex.css') }}" rel="stylesheet">
 </head>
 <body>
+<div class="navbar">
+    <ul >
+        <li>
+            <a href="{{route('root')}}">Finn</a>
+        </li>
+        <li>
+            <a href="{{route('users.create')}}">Sign Up</a>
+        </li>
+        <li>
+            <a href="{{route('login')}}">Login</a>
+        </li>
+        <li>
+            <a href="{{route('users.index')}}">Admin</a>
+        </li>
+        <li>
+            <a href="{{route('blogs.index')}}">Post</a>
+        </li>
+    </ul>
+</div>
+<div class="icon">
+    <div>
+    </div>
+    <div class="col">
+        <a href="{{route('profile')}}">
+            <img src={{session('avatar')}}>
+        </a>
+        <h4>{{session('name')}}</h4>
+        <div class="log">
+            <form method="post" action="{{action('UserController@logout')}}">
+                {{csrf_field()}}
+                <button type="submit" class="btn">
+                    Logout</button>
+            </form>
+        </div>
+    </div>
+
+</div>
 <div class="container">
     <div class="row">
-        <div class="col-md-12" id="nav_bar" style="background-color: #f6ffff">
-            <ul> <span>
-                    <a href="{{route('root')}}">Finn</a>
-                </span>
-                <span>
-                    <a href="{{route('users.create')}}">Sign Up</a>
-                </span>
-                <span>
-                    <a href="{{route('login')}}">Login</a>
-                </span>
-                <span>
-                    <a href="{{route('users.index')}}">Admin</a>
-                </span>
-                <span>
-                    <a href="{{route('blogs.index')}}">Post</a>
-                </span>
-                <span>
-                    <div class="info">
-                          <h4> <a href="{{route('profile')}}">
-                              <img src={{session('avatar')}}>
-                          </a></h4>
-                          <div class="log">
-                              <form method="post" action="{{action('UserController@logout')}}">
-                                  {{csrf_field()}}
-                                  <button type="submit" class="btn btn-success">
-                                      Logout
-                                  </button>
-                              </form>
-                    </div>
-                </span>
-            </ul>
-        </div>
-
         <br/>
         @if (\Session::has('success'))
             <div class="alert alert-success">

@@ -16,7 +16,7 @@ class ProductController extends Controller
     {
         // $product = Product::all()->toArray(); // ok here
         //  $product = Product::orderBy('created_at','desc')->paginate(15);
-         $product = DB :: table('products')->paginate(15);
+         $product = DB :: table('products')->paginate(8);
         // $blog = Blog::orderBy('created_at','desc');
         // var_dump($product);die();
         //$user = User::all()->toArray();

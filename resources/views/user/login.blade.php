@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
     <title>Finn</title>
@@ -20,7 +19,6 @@
            <ul class="nav navbar-nav">
                <li>
                    <a href="{{route('root')}}">Finn</a>
-
                </li>
                <li>
                    <a href="{{route('users.create')}}">Sign Up</a>
@@ -39,67 +37,53 @@
        </div>
     </nav>
         <div class="main-container">
-               <div class="index-intro" id="showcase">
-                   <div class="bg-image"></div>
-               </div>
-               <div class="container-fluid">
-                    <div class="row">
-                         <div class="col-sm-2 left1">
-                         </div>
-                         <div class="col-sm-2 left2">
-                         </div>
-                         <div class="col-sm-4 center">
-                                <h3>Login</h3>
-                                <div class="log">
-                                    <form method="post" action="{{action('UserController@signin')}}">
-                                    {{csrf_field()}}
-                                    <label for="email">Email:</label>
-                                    <input type="text" class="form-control" name="email" placeholder="TagName"id="searchEmail" autocomplete="on">
-                                    <label for="password">Password:</label>
-                                    <input type="password" class="form-control" name="password">
-                                    <button type="submit" class="btn btn-success" style="margin-left:38px">Login</button>
-                                    </form>
-                                </div>
-                                <div>
-                                    <a href="{{route('redirectToProvider')}}" class="btn btn-primary" data-scope="email">Google</a>
-                                </div>
-                                 <div>
-                                  <a href="{{route('redirect')}}" class="btn btn-primary" data-scope="email">Facebook</a>
-                                 </div>
-
-
-
-
-                      {{-- javascript login
+            <div></div>
+            <div class="row">
+                <div>
+                </div>
+                <div class="log">
+                    <form method="post" action="{{action('UserController@signin')}}">
+                    {{csrf_field()}}
                         <div>
-                                    <button onclick="login();">
-                                        Facebook login
-                                    </button>
-                                </div>
-                                 <div>
-                                     <button onclick="logout();">
-                                         Facebook logout
-                                     </button>
-                                 </div>
-                       --}}
-
-                                <div class="signup">
-                                    <a href="{{route('users.create')}}">Or sign up here</a>
-                                </div>
-                                <div id="java">
-                                </div>
-                         </div>
-
-                         <div class="col-sm-2 right1" ><
-                         </div>
-                         <div class="col-sm-2 right2">
-                         </div>
-                    </div>
+                            <label for="email">Email</label>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" name="email"id="searchEmail" autocomplete="on" style="border-color: #5bc0de;border-radius: 5px">
+                        </div>
+                        <div>
+                            <label for="password">Password</label>
+                        </div>
+                        <div>
+                            <input type="password" class="form-control" name="password"style="border-color: #5bc0de;border-radius: 5px">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn"">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <a href="{{route('redirectToProvider')}}" class="btn btn-primary" data-scope="email">Google</a>
+                </div>
+                <div>
+                  <a href="{{route('redirect')}}" class="btn btn-primary" data-scope="email">Facebook</a>
+                </div>
+                                          {{-- javascript login
+                                            <div>
+                                                        <button onclick="login();">
+                                                            Facebook login
+                                                        </button>
+                                                    </div>
+                                                     <div>
+                                                         <button onclick="logout();">
+                                                             Facebook logout
+                                                         </button>
+                                                     </div>
+                                           --}}
+                <div class="signup">
+                    <a href="{{route('users.create')}}"style="text-decoration: none">Or sign up here</a>
+                </div>
             </div>
-
-
-
-
+            <div></div>
         </div>
 <script type="text/javascript">
 
@@ -179,34 +163,8 @@
             })
         });
     })
-    var getDate = new Date();
-    function startTime() {
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var s = today.getSeconds();
-        m = checkTime(m);
-        s = checkTime(s);
-        document.getElementById('txt').innerHTML =
-            h + ":" + m + ":" + s;
-        var t = setTimeout(startTime, 500);
-    }
-    function checkTime(i) {
-        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-        return i;
-    }
-    var date = Date();
-    var navStatus = true;
-    function toggleNav() {
-        if (navStatus == true){
-            document.getElementById("closenav").style.top = "0px";
-            navStatus = false;
-        }
-        if (navStatus == false){
-            document.getElementById("closenav").style.top = "0px";
-            navStatus = true;
-        }
-    }
+
+
 </script>
 <script>
 </script>

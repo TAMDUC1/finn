@@ -56,6 +56,8 @@ li a:hover {
 .main-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    background-color: #f6ffff;
+
 
 }
 .nested{
@@ -68,7 +70,6 @@ li a:hover {
     border-width: thin;
     border-radius: 3px;
     margin-top: 1em;
-    background-color: #f2fffa;
     padding: 1em;
     text-align: center;
 }

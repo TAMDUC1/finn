@@ -7,38 +7,47 @@
     <title>Index Page</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ asset('css/userIndex.css') }}" rel="stylesheet">
 </head>
 <body>
-<div style="color: #0c092a">
+<div class="navbar">
+    <ul >
+        <li>
+            <a href="{{route('root')}}">Finn</a>
+        </li>
+        <li>
+            <a href="{{route('users.create')}}">Sign Up</a>
+        </li>
+        <li>
+            <a href="{{route('users.index')}}">Admin</a>
+        </li>
+        <li>
+            <a href="{{route('blogs.index')}}">Post</a>
+        </li>
+    </ul>
+</div>
+<div class="icon">
+    <div>
+    </div>
+    <div class="col">
+        <a href="{{route('profile')}}">
+            <img src={{session('avatar')}}>
+        </a>
+        <h4>{{session('name')}}</h4>
+        <div class="log">
+            <form method="post" action="{{action('UserController@logout')}}">
+                {{csrf_field()}}
+                <button type="submit" class="btn">
+                    Logout</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
     <div class="container">
-        <div class="row">
-            <div class="col-md-9" id="nav_bar" style="background-color: #f6ffff">
-                <ul>
-                <span>
-                        <a class="navbar-brand" href="{{route('root')}}">Finn
-                        </a>
-                </span>
-                 <span>
-                    <a class="navbar-brand" href="{{route('root')}}">Home</a>
-                </span>
-                    <span>
-                    <a class="navbar-brand" href="{{route('blogs.index')}}">Post</a>
-                </span>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <a href="{{route('profile')}}">
-                    <img src={{session('avatar')}}>
-                </a>
-                <h4>{{session('name')}}</h4>
-                <div class="log">
-                    <form method="post" action="{{action('UserController@logout')}}">
-                        {{csrf_field()}}
-                        <button type="submit" class="btn btn-success">
-                            Logout</button>
-                    </form>
-                </div>
-            </div>
+
+
+        <div class="abc">
             <br/>
             @if (\Session::has('success'))
                 <div class="alert alert-success">
@@ -78,7 +87,8 @@
                 </tbody>
             </table>
         </div>
+        {{$user->links()}}
+
     </div>
-{{$user->links()}}
 </body>
 

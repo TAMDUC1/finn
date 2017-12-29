@@ -59,7 +59,7 @@
                 <div class="log">
                     <form method="post" action="{{action('UserController@logout')}}">
                         {{csrf_field()}}
-                        <button type="submit" class="btn btn-success">
+                        <button type="submit" class="btn">
                             Logout
                         </button>
                     </form>
