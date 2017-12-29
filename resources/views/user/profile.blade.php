@@ -11,8 +11,7 @@
     <title>Finn</title>
 </head>
 <body>
-    <nav >
-        <div>
+    <nav>
             <ul >
                 <li>
                     <a href="{{route('root')}}">Finn</a>
@@ -27,46 +26,52 @@
                     <a href="{{route('blogs.index')}}">Post</a>
                 </li>
             </ul>
-        </div>
     </nav>
-    <div class="container">
+    <div class="container" id="container">
         <div >
-        <div class="col-sm-6">
-
+        <div class="form">
             <div class="test" id="test">
                 <form id="register">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     {{csrf_field()}}
-                    <div class="left-form"  >
-                        <label for="title">Title</label>
-                        <input
-                                type="text"
-                                class="form-control"
-                                name="title"
-                                id="title"
-                        >
-                        </input>
+                    <div class="left-form" >
+
+                        <label for="title"style="color: #1c679c">Title</label>
+                        <div>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    name="title"
+                                    id="title"
+                                    style="border-color: #1c679c"
+                            >
+                            </input>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="content">Content</label>
-                        <input
-                                type="text"
-                                class="form-control"
-                                name="content"
-                                id="content"
-                                style="height:200px;font-size:14pt;"
-                        >
-                        </input>
+                        <div>
+                            <label for="content"style="color: #1c679c">Content</label>
+                        </div>
+                        <div>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    name="content"
+                                    id="content"
+                                    style="height:200px;font-size:14pt;border-color: #1c679c"
+                            >
+                            </input>
+                        </div>
                     </div>
                     <div class="submit-button">
-                        <button type="submit" class="btn btn-primary" style="margin-left:38px" id="sm" ONCLICK="myFunction()">Submit</button>
+                        <button type="submit" class="btn " style="margin-left:38px" id="sm" ONCLICK="myFunction()">Submit</button>
                     </div>
                 </form>
                 <form method="post" action="{{action('BlogController@deleteAll')}}">
                     {{ csrf_field() }}
                     <div class="delete_button">
                         <label>
-                            <button type="submit" class="btn btn-success" style="margin-left:38px">deleteAllBlogs</button>
+                            <button type="submit" class="btn " style="margin-left:38px">deleteAllBlogs</button>
                         </label>
                     </div>
                 </form>
@@ -74,7 +79,7 @@
         </div>
         </div>
         <div>
-           <h3>
+           <h3 style="color: #1c679c">
                Your Post
            </h3>
             <div class="blogPost" id="blogPost" title="Your Post" >
@@ -86,7 +91,7 @@
             {{ csrf_field() }}
             <div class="logout-button">
                 <label>
-                    <button type="submit" >Log out</button>
+                    <button type="submit" class="btn" >Log out</button>
                 </label>
             </div>
         </form>
@@ -118,9 +123,7 @@
         node.appendChild(textnode1);
         node.appendChild(textnode2);
         document.getElementById("myList").appendChild(node);
-
         1 dong code duoi thay cho 5 dong code tren
-
         */
         $('#blogPost').prepend('Title la :'+bTitle +' '+'Content la: '+ bContent);
         $('#blogPost').prepend("<tr/>");
@@ -128,6 +131,7 @@
 
     // $('#myList').append(bTitle+'1');
     $(document).ready(function () {
+      //  $('input[type="text"]').addClass('highLight');
         $.ajax
         (
             {
@@ -150,7 +154,6 @@
                     $('#blogPost').append('Error')
                 }
             })
-
         $('#register').submit(function (event)// save blogs
         {
             event.preventDefault();
@@ -168,12 +171,21 @@
         })
         $('#sm').click(function ()
         {
+          //  $('input[type="text"]').removeClass('highLight');
+            $('input[type="text"]').toggleClass('highLight');
+            // $('#container').toggle(.hi)
+            $('#blogPost').css({
+                'color':'red',
+                'grid-template-columns':'1fr'
+            }
+        )
             console.log('qua dc');
             $.get("{{URL:: to('blog/read-data')}}",function (data) {
                console.log(data);
            })
         });
     })
+
 </script>
 
 </body>

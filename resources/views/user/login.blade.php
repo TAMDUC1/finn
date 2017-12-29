@@ -8,21 +8,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
     <title>Finn</title>
-    <link href="{{asset('css/login1.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="https://connect.facebook.net/en_US/all.js"></script>
+    <link href="{{asset('css/login1.css')}}" rel="stylesheet">
 </head>
 <body onload="startTime()">
     <nav class="navbar navbar-default" id="closenav" style="background-color: #f6ffff">
        <div class="container-fluid"  onclick ="toggleNav()">
-           <div class="navbar-header">
-               <a class="navbar-brand" href="{{route('root')}}">Finn
-               </a>
-           </div>
+
            <ul class="nav navbar-nav">
                <li>
-                   <a href="{{route('root')}}">Home</a>
+                   <a href="{{route('root')}}">Finn</a>
 
                </li>
                <li>
@@ -182,8 +179,6 @@
             })
         });
     })
-
-
     var getDate = new Date();
     function startTime() {
         var today = new Date();
@@ -214,7 +209,6 @@
     }
 </script>
 <script>
-
 </script>
 </body>
 </html>

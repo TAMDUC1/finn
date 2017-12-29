@@ -1,9 +1,11 @@
 html, body {
+
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
-    top:90px;
-    height: 90vh;
     margin: 0;
+}
+.title {
+    font-size: 60px;
 }
 .links > a {
     color: #f6ffff;
@@ -15,6 +17,7 @@ html, body {
     text-transform: uppercase;
 }
 ul {
+    width: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -27,51 +30,15 @@ li {
 }
 li a {
     display: block;
-    color: #f6ffff;
+    color: #dff8ff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    border-radius: 5px;
 }
 li a:hover {
     color: #8b1121;
     background-color: #cbff97;
-    border-radius: 2px;
-}
-.navbar{
-
-    padding-bottom: 3px;
-    background-color: #312fff;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-}
-.container{
-    position: relative;
-    top:70px;
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-auto-rows: minmax(700px,auto);
-}
-.luachon{
-    border-width: thin;
-    border-right-color: black;
-    border-left-color: transparent;
-    border-bottom-color: transparent;
-    background-color: #f6ffff;
-
-}
-.luacon2{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 0.5em;
-}
-.luacon2 > div{
-    border-width: 0.02px;
-    margin: 2px;
-    padding: 10px;
-}
-.luachon3{
-    background-color: #f6ffff;
 }
 .text{
     background-color: #f6ffff;
@@ -86,14 +53,28 @@ li a:hover {
     border-style: solid;
     border-width: 1px;
 }
-.block{
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+.nested{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2px;
+}
+.nested > div{
     border-style: solid;
     border-width: thin;
-}button:hover{
-     color: #8b1121;
-     border-radius: 5px;
-     border: 2px solid #8b0a1c;
- }
+    border-radius: 3px;
+    margin-top: 1em;
+    background-color: #f2fffa;
+    padding: 1em;
+    text-align: center;
+}
+img {
+    border-radius: 50%;
+}
 .btn {
     border-style: hidden;
     border-radius: 5px;
@@ -104,10 +85,26 @@ li a:hover {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    left: 50%;
 }
 .btn:hover{
     color: #8b1121;
+    border-color: #8b1121;
+
+}
+.fail{
+    display: grid;
+    grid-template-columns: 1fr;
 }
 img {
     border-radius: 50%;
+}
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
 }

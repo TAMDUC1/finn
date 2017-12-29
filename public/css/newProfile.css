@@ -1,9 +1,6 @@
 html, body {
-
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
-    top:90px;
-    height: 90vh;
     margin: 0;
 }
 .title {
@@ -23,7 +20,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #f6ffff;
+    background-color: #312fff;
 }
 
 li {
@@ -31,18 +28,18 @@ li {
 }
 li a {
     display: block;
-    color: #4858ff;
+    color: #dff8ff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
-
 li a:hover {
+    color: #8b1121;
     background-color: #cbff97;
     border-radius: 2px;
 }
-
 .container{
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 1px;
@@ -52,7 +49,7 @@ li a:hover {
     background-color: #f6ffff;
 
 }
-.container> div{
+.container > div{
     border-style: solid;
     border-width: 0.1px;
     border-left-color: lightblue;
@@ -61,6 +58,11 @@ li a:hover {
     border-right-color: lightblue;
     padding: 1em;
     margin: 1em;
+
+}
+.form{
+    display: grid;
+    grid-template-columns: 1fr;
 }
 .icon{
     right: 0px;
@@ -80,8 +82,9 @@ button:hover{
 }
 .test{
     display: grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 1fr;
 }
+
 .blogPost{
     display: grid;
     grid-template-columns: 1fr;
@@ -93,4 +96,23 @@ button:hover{
     border-width: thin;
     border-color: black;
 
+}
+.highLight{
+    background-color: #90EE90;
+}
+.btn{
+    border-style: hidden;
+    border-radius: 5px;
+    background-color: #f2fffa;
+    color: #4f66ff;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.nav{
+    position: fixed;
+    background-color: #312fff;
+    width: 100%;
 }

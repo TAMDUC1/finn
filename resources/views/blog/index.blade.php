@@ -4,7 +4,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
     <link href="{{ asset('css/abc.css') }}" rel="stylesheet" type="text/css" >
@@ -21,15 +20,13 @@
                })
             })
         })
-
     </script>
-
 </head>
 <body>
     <div class="navbar">
         <ul>
             <li>
-                <a href="{{route('root')}}">Home</a>
+                <a href="{{route('root')}}">Finn</a>
             </li>
             <li>
                 <a href="{{route('users.create')}}">Sign Up</a>
@@ -45,9 +42,12 @@
             <div class="luacon2" >
                 @foreach($blog1 as $b)
                     <div class="block">
-                        <p>Title:{{$b['title']}}</p>
-                        <p>Content:{{$b['content']}}</p>
-                        <p>From user:{{$b['user_id']}}</p>
+                        <div>
+                            <p title="Title" style="background-color: #0b138b;color: white">{{$b['title']}}</p>
+
+                        </div>
+                        <p>{{$b['content']}}</p>
+                        <p>User {{$b['user_id']}}</p>
                     </div>
                 @endforeach
             </div>
