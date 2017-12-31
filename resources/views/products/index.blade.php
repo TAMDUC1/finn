@@ -49,6 +49,14 @@
                     Logout</button>
             </form>
         </div>
+        <div>
+            <a href="{{route('products.create')}}">
+
+            <p>
+                    Make a new product
+                </p>
+            </a>
+        </div>
     </div>
 
 </div>
@@ -107,5 +115,4 @@
             </tbody>
         </table>
     </div>
-{{$product->links()}}
 </body>

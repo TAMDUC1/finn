@@ -3,6 +3,8 @@ html, body {
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
     margin: 0;
+    background-color: #f6ffff;
+
 }
 .title {
     font-size: 60px;
@@ -99,6 +101,8 @@ img {
 }
 img {
     border-radius: 50%;
+    border: 2px solid #ddd;
+
 }
 .footer {
     position: absolute;

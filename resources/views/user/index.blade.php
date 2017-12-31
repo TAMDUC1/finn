@@ -87,7 +87,6 @@
                 </tbody>
             </table>
         </div>
-        {{$user->links()}}
 
     </div>
 </body>

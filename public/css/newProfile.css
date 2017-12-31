@@ -70,6 +70,8 @@ li a:hover {
 }
 img{
     border-radius: 50%;
+    border: 2px solid #ddd;
+
 }
 button:hover{
      background-color: lightblue;

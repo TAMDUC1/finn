@@ -19,7 +19,25 @@
                    console.log(data);
                })
             })
+            $(function() {
+                //----- OPEN
+                $('[data-popup-open]').on('click', function(e)  {
+                    var targeted_popup_class = jQuery(this).attr('data-popup-open');
+                    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+
+                    e.preventDefault();
+                });
+
+                //----- CLOSE
+                $('[data-popup-close]').on('click', function(e)  {
+                    var targeted_popup_class = jQuery(this).attr('data-popup-close');
+                    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+                    e.preventDefault();
+                });
+            });
         })
+
     </script>
 </head>
 <body>
@@ -41,18 +59,19 @@
             </div>
             <div class="luacon2" >
                 @foreach($blog1 as $b)
-                    <div class="block">
-                        <div>
-                            <p title="Title" style="background-color: #0b138b;color: white">{{$b['title']}}</p>
 
+                    <div class="block">
+                        <div class="block1">
+                            <p title="Title" style="background-color: #0b138b;color: white">{{$b['title']}}</p>
                         </div>
                         <p>{{$b['content']}}</p>
                         <p>User {{$b['user_id']}}</p>
+                        <a class="btn" data-popup-open="popup-1" href="#">Open Blog</a>
+
                     </div>
                 @endforeach
             </div>
             <div class="luachon3">
-
                 <a href="{{route('profile')}}">
                     <img src={{session('avatar')}}>
                 </a>                    <h4>{{session('name')}}</h4>
@@ -64,8 +83,14 @@
                         </button>
                     </form>
                 </div>
-
             </div>
+    </div>
+    <div class="popup" data-popup="popup-1">
+        <div class="popup-inner">
+            <p>amazing</p>
+            <p><a data-popup-close="popup-1" href="#">Close</a></p>
+            <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+        </div>
     </div>
 </body>
 </html>

@@ -12,13 +12,9 @@
     </head>
     <body>
         <div class="container">
-                    <div  style="background-color: #f6ffff">
                         <ul>
                             <li>
-                                <div class="navbar-header">
-                                    <a class="navbar-brand" href="{{route('root')}}">Finn
-                                    </a>
-                                </div>
+                                <a href="{{route('root')}}">Finn</a>
                             </li>
                             <li>
                               <a href="{{route('users.create')}}">Sign Up</a>
@@ -38,8 +34,6 @@
                             <li>
                                 <a href="">abc</a>
                             </li>
-                        </ul>
-                    </div>
         </div>
         <div class="wrapper">
               <div>

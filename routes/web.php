@@ -90,6 +90,13 @@ Route::get('singleBlog','BlogController@singleBlog')->name('singleBlog');
 Route::post('deleteAll','BlogController@deleteAll')->name('deleteAll');
 Route::get('getBlog','BlogController@getBlog')->name('getBlog');
 Route::resource('blogs','BlogController');
+
+
+
+
+
+
+
 Route::resource('products','ProductController');
 
 

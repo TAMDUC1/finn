@@ -3,6 +3,7 @@ html, body {
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
     margin: 0;
+
 }
 .title {
     font-size: 60px;
@@ -138,7 +139,9 @@ button:hover{
 }
 img {
      border-radius: 50%;
- }
+     border: 2px solid #ddd;
+
+}
 .footer {
     position: absolute;
     right: 0;

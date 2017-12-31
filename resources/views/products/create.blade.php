@@ -65,7 +65,6 @@
         <input type="file" name="photo">
        <!-- <form action="upload.php" method = "POST" enctype="multipart/form-data">
         </form> -->
-        </div>
         <div class="row">
         <div class="col-md-4"></div>
          <div class="form-group col-md-4">
