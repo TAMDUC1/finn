@@ -87,7 +87,6 @@
         </ul>
     </div>
     <div class="container">
-
             <div class="luacon2" >
                 @foreach($blog1 as $b)
                     <div class="block">
