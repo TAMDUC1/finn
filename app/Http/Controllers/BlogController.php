@@ -34,7 +34,9 @@ class BlogController extends Controller
         //  $blogNewCount = $_POST['blogNewCount'];
         // var_dump();die();
       // echo $blogNewCount;
-         echo "abc";
+        $blog = Blog::all()->toArray();
+
+        echo "abc";
          //echo "blogcount la :";
          //echo $_COOKIE["blogCount"];
          // var_dump();die();

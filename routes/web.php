@@ -91,13 +91,8 @@ Route::post('deleteAll','BlogController@deleteAll')->name('deleteAll');
 Route::get('getBlog','BlogController@getBlog')->name('getBlog');
 Route::resource('blogs','BlogController');
 
-
-
-
-
-
-
 Route::resource('products','ProductController');
 
-
+Route::post('mails/create','MailController@create')->name('mailCreate');
+Route::resource('mails','MailController');
 
